@@ -19,7 +19,14 @@ Junit:
 6. Maven clean --> clean/delete the file under target dir
    Maven install -->  build the jar if all test cases are passed
 
-Mockito:
-========
+Mockito:(Mocking framework)
+===========================
 
+Mocking involves 
+        1. Stubbing  
+        2. setting expections and 
+        3. verifying 
 
+MockitoAnnotations.initMocks(this); --> Scan the test class and look for @Mock classes and mock them by calling this line.
+
+verify -->  This method can verify whether method is invoked or not
