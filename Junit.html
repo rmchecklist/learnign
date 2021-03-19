@@ -30,3 +30,51 @@ Mocking involves
 MockitoAnnotations.initMocks(this); --> Scan the test class and look for @Mock classes and mock them by calling this line.
 
 verify -->  This method can verify whether method is invoked or not
+
+
+Junit5 with Mockito
+===================
+
+@ExtendWith(MockExtension.class) --> This wille extend all class related MockExtension
+
+@Mock - Mock the class/interface
+@InjectMocks --> Inject the mock and create an object 
+
+
+
+Code coverage:
+===============
+
+
+Mockito verify:
+
+1. verify(object, times()/atleast())
+        e.g. verify(dao, times(2)).delete(123);
+2. Matcher --> e.g. anyInt
+3. doNothing().when(b).voidMethod()
+3. mutiple return using doNothing().doThrow(RuntimeExceptio.class).when(b).voidMethod()
+        --> Return nothing from 1st execution and throw exception from 2nd execution
+
+F I R S T
+=========
+
+F -Fast
+I - Independent
+R - Repeatable
+S - Self-validating
+T -Timely
+
+
+Test Doubles:
+=============
+
+Dummy
+Stubs
+Mocks
+Fake
+Spies
+
+
+
+
+
