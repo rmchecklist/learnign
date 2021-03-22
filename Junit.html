@@ -74,7 +74,57 @@ Mocks
 Fake
 Spies
 
+Spies: ==> Partially mock the object. Going to call the real object than mocked 
+        e.g.
+                myList.add("M");
+		myList.add("R");
+		Mockito.doReturn(3).when(myList).size();
+		assertSame(3, myList.size());
+
+Though actual size of the list is 2, we can mock them return 3
+
+Mock vs Spy
+
+1. Through mock method, we can call the real method using when(myList.size()).thenCallRealMethod();
+2. Spy --> we need have real value to mock them, Hence it is called partial mocking
 
 
+Maven:
+=====
 
+pom.xml ==> Project object model
+
+
+Instead of using MockitoAnnotations.initMocks(this);, we can use @RunWith(MockitoJunitRunner.class) on the class
+
+
+Parameterized Junit:
+====================
+
+1. Identifying the input data and results e.g. input ==> num1, num2 output==> result
+2. Create a fields in the test class e.g. num1, num2, result
+3. Create a constructor e.g. public calculatortest(int num1, int num2, int result){}
+4. Create a static method
+                        @Parameters
+                        public static Collection<Integer[]> data(){
+	                	return Arrays.asList(new Integer[][] {{-1,2,1}, {1,2,3}, {6,7,12}});
+                        
+                        }
+4. @RunWith(Parameterized.class) --> on the class
+
+
+Powermock Introduction:(This can be used to invoke a static method)
+=======================
+
+Mockito limitation:
+        static, Final, Constructor, Private, Enums ==> This can be overcome by powermockito
+                                
+                                
+How to use powermock:
+                                @RunWith(PowerMockRunner.class)
+                                @PrepareForTest(IdGenerator.class)
+                                
+                                
+                                
+                                
 
