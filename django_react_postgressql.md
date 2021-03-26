@@ -28,3 +28,5 @@
    - Index.html ==> root page 
      - This page has id=root src/index.js ==> load the root component
    - src/App.js ==> Top level component
+   - Change the favicon by replacing the logo under public folder
+   - Change the title by updating index.html [title]
