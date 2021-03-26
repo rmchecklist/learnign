@@ -32,8 +32,11 @@ Return text from person method will be transformed into Javascript.
 
 ReactDOM.render(<Person/>, document.querySelector('#p1'));
 
-Component should be created by fucntion as above and it is rendered by calling **ReactDOM.render(<[functionName]/>, document.querySelector('[id Name]'))**
+Component should be created by fucntion as above and it is rendered by calling 
 
+```
+**ReactDOM.render(<[functionName]/>, document.querySelector('[id Name]'))**
+```
 
 User can pass the argument by passing name and age(from above snippets)
 
@@ -48,11 +51,11 @@ function Person(props){
     </div>
   );
 }
-```
+
 ReactDOM.render(<Person name="Madhav" age="3"/>, document.querySelector('#p1'));
 
 ReactDOM.render(<Person name="Elakya" age="32"/>, document.querySelector('#p2'));
-
+```
 html:
 ```
 <div id="p1"></div>
@@ -92,5 +95,102 @@ React Alternatives:
   - Single page application
   - Multi page application
 
-Next Gen Javascript:
+## Next Gen Javascript
+
+1. let & const
+    - let - variable values
+    - const - constant, assign once and it cannot be changed
+2. Arrow Functions
+    ```
+    Syntax:
+        const myfunc = () => {}
+        
+        if one argumnent is passed:
+        
+            const myfunc = name => {} , this can also written as const myfunc = name => "name:"+ name(paranthisis, calibraces and return can be removed.
+        
+        more than 1 arg passed:
+            const myfunc = (arg1, arg2) => {}
+        
+    ```
+3. Exports & Imports (Modules)
+```
+const person = {
+    name: 'Max'
+}
+
+export default person
+
+import person from './person.js'
+```
+
+Default export 
+    ```
+    import person from './person.js'
+    import prs from './person.js'
+    ```
+named export
+```
+    import {smth} from './person.js'
+    import {smth as smth} from './person.js'
+    import * as bundled from './utiltiy.js'
+```
+
+4. Classes
+
+```
+    class Person{
+        name = "Max" --> Property
+        call = () => {...} --> Function
+    
+    const myperson = new Person()
+    myperson.call()
+    console.log(myperson.name)
+    }
+    
+    Class extends from another class
+    
+    class Person extends Master
+```
+
+Example of class:
+
+    ```
+    Class 1: Human
+    
+        class Human{
+          constructor(){
+            this.age = '3';
+          }
+
+          printMyAge(){
+            console.log(this.age);
+          }
+        }
+        
+       class2: Person
+       
+       class Person extends Human{
+          constructor(){
+            super()
+            this.name = 'Madhav';
+          }
+
+          print_name(){
+            console.log(this.name);
+          }
+        }
+        
+        const h = new Human();
+        h.printMyAge(); 
+
+        const p = new Person();
+        p.print_name();
+        p.printMyAge();
+    ```
+    
+        - When extends the class then should call super() from contructor()
+        - can access all properties of super class, using current class instance
+        
+    
 
