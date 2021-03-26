@@ -173,6 +173,7 @@ Example of class:
        class Person extends Human{
           constructor(){
             super()
+            this.age = '4' --> Alter the parent class attributes
             this.name = 'Madhav';
           }
 
@@ -189,8 +190,37 @@ Example of class:
         p.printMyAge();
     ```
     
-        - When extends the class then should call super() from contructor()
-        - can access all properties of super class, using current class instance
+- When extends the class then should call super() from contructor()
+- can access all properties of super class, using current class instance
         
     
+5. Classes, Properties & methods
+    - Propeties are attached the classes/Object
+    - Methods are like functions attached to classes/objects
+    
+    ```
+    - Properties:
+    
+    ES6:    
+    constructor(){
+        this.myprop = 'value'
+    }
+    
+    ES7:    
+    myprop = 'value'
+    
+    - Methods:
+    
+    ES6:
+    mymethod(){
+    }
+    
+    ES7:
+    mymethod = () => {}
+   
+    
+    
+    ```
+    
+
 
