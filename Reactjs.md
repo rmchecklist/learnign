@@ -230,7 +230,7 @@ Example of class:
             - No need to call super() on the constructor, directly access the parent class variable
         - method can be replaced by arrow function mymethod = () => {}
     
-    6. Spread & Rest Operators
+6. Spread & Rest Operators
         - Spread ==> Used to split up array elements OR object properties, denoted by [...]
            - const newArray = [...oldArray, 1, 2] ==> Extract the old array and add it to new array
            - const newObject = {...oldObject, newProp:5}  
@@ -252,7 +252,7 @@ Example of class:
                 } 
                 console.log(filter1(2,3,4,5,6));
                 
-    7. Destructuring
+7. Destructuring
              - Easily extract array elements or object properties and store them in variables
                 - Array destructuring
                     - [a, b] = ['Madhav', '3']    
@@ -264,7 +264,7 @@ Example of class:
 
                         console.log(a, age);  
                  
- 8. Reference and primitive type refreshers
+8. Reference and primitive type refreshers
         - Primitive types(All primitive data types) ==> Copy the value when we reassign the variable
             e.g.
                 const number = 10
@@ -285,7 +285,7 @@ Example of class:
                         person.name = "Elakya";
                         console.log(person2.name); 
 
-    9. Refreshing array functions
+9. Refreshing array functions
         - Array map functions ==> Read all array and manupulate by map function
             -   e.g. 
                 const numarray2 = numarray.map(num => num *2);
