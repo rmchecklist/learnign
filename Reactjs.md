@@ -222,5 +222,11 @@ Example of class:
     
     ```
     
+    ES7
+      - Contructor can replaced by regular variable assignemnt
+        - constructor(){this.name = "Madhav"} replaced by name = "Madhav"
+        - method can be replaced by arrow function mymethod = () => {}
+        - No need to call super() on the constructor, directly access the parent class variable
+    
 
 
