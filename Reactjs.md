@@ -285,13 +285,22 @@ Example of class:
                         person.name = "Elakya";
                         console.log(person2.name); 
 
-9. Refreshing array functions
+9. Refreshing array functions[map, filter, reduce]
     - Array map functions ==> Read all array and manupulate by map function
+        ```
         - e.g. 
+        - map
                 const numarray2 = numarray.map(num => num *2);
                 console.log(numarray);
                 console.log(numarray2); 
-                
+        - filter
+            - e.g. const numberarray = [1,2,3].filter(el = () => el === 1))
+        - reduce
+            - e.g. const result = numarray.reduce((acc, curr) => {
+                      return acc+curr;  
+                    });      
+         ```
+         
          
 
     
