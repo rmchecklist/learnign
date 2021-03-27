@@ -359,18 +359,20 @@ Example of class:
   Since it is cumbersome, we can use JSX code 
     
 ## JSX Restrictions
-    1. JSX looks like html file, class should be replaced by className becuase class is reversed keyword which will be used to create a classes
+
+1. JSX looks like html file, class should be replaced by className becuase class is reversed keyword which will be used to create a classes
+
 ```
-        <div **className**="App">
-          <h1>Hi, I'm a React App</h1>
-        </div>
+<div **className**="App">
+  <h1>Hi, I'm a React App</h1>
+</div>
 ```
-    2. JSX can have one root element, can't have mutiple
+2. JSX can have one root element, can't have mutiple
 ```
-            <div className="App">
-              <h1>Hi, I'm a React App</h1>
-            </div>
-            ~~<h1></h1>~~
+<div className="App">
+  <h1>Hi, I'm a React App</h1>
+</div>
+~~<h1></h1>~~
 ```
 
 
