@@ -328,5 +328,40 @@ Example of class:
     - App.js ==> This is first react componented created by create-react-app script
     - App.css ==> styling used in App.js
     - index.css ==> used for global styling
+ 
+## Understanding component basics
+
+ 1. index.js ==> Rendering the application components into root elememt which is defined in index.html
+ 2. App.js 
+        - This should render html page from render method[class level component] or App function[functional level component] which return html 
+            - class level component ==> class App extends Component { render(){return (JSX)};
+            - functional level component ==> function App(){ return (JSX)}; 
+            - export default App
+ 3. index.js
+        - Import the app component by 
+                ```
+                import App from './App'
+                ```
+                
+## Understanding JSX
+
+    ```
+    #### JSX:
     
+    return (
+        <div className="App">
+          <h1>Hi, I'm a React App</h1>
+        </div>
+      );
+   
+   This can be translated into 
+   
+  return React.createElement('div', {className: 'App'},   React.createElement('h1', null, 'Does this work?'));
+  
+  Since it is cumbersome, we can use JSX code 
+    Same above text can created via React.createElement
+    ```
+
+
+
     
