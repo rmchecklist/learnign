@@ -301,6 +301,32 @@ Example of class:
                     });      
          ```
          
-         
+ # The Basics - All core react concepts
+ 
+ create react app --> [https://github.com/facebook/create-react-app](Set up a modern web app by running one command)
+ 
+ ## Install and create reactjs
+ 
+ 1. Install nodejs [https://nodejs.org/en/](Nodejs installation url)
+ 2. Install react ==> npm install create-react-app -g [-g install react globally on our local machine] 
+ 3. Create new react app ==> create-react-app [ap_name] --scripts-version 1.1.5
+ 4. Once project created, go application folder and then start the server by **npm start**
+ 5. Access the server using [http://localhost:3000/](React app local server)
 
+## Understanding the folder structure
+
+1. package.json 
+    - dependecies ==> define the general dependencies [react, react-dom, react-scripts]
+    - Scripts ==> start, build by running these commands through npm
+2. node_modules ==> This will be created as part of the create app script, it contains all dependencies. Do not change/update this folder
+3. public ==>
+    - index.html ==> Contains root id and rendering all our components into this id, we don't create any other html file, all will be in javascript components
+        - Add any libraries   
+    - manifest.json ==> creates a meta-data for our application.
+4. src
+    - index.js ==> This will get access to index.html by accessing root element(id)
+    - App.js ==> This is first react componented created by create-react-app script
+    - App.css ==> styling used in App.js
+    - index.css ==> used for global styling
+    
     
