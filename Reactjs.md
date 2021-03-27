@@ -377,6 +377,30 @@ Example of class:
 
 ## Creating a functional components
 
+1. Create a new folder under src, best practice is to create a folder name starts with Uppercase, this would avoid any html tags e.g. Person
 
+2. Create a js file Person.js(Naming convenstion first char should be Upper case)
 
+3. Import React package
+    - This will transform JSX into Javascript
+    ```
+    import React from 'react'
+    ```
+4. Create a function
+```
+const person = () => { return <p>I'm a Person</p>}
+```
+5. Export component
+```
+export default person
+```
+6. Use the functional component in App.js
+    - import the Person components
+        ```
+        import Person from './Person/Person'
+        ```
+     - Use the person compoent like html element
+        ```
+        <Person />
+        ```
     
