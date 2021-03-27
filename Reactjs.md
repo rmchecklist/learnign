@@ -286,8 +286,8 @@ Example of class:
                         console.log(person2.name); 
 
 9. Refreshing array functions
-        - Array map functions ==> Read all array and manupulate by map function
-            -   e.g. 
+    - Array map functions ==> Read all array and manupulate by map function
+        - e.g. 
                 const numarray2 = numarray.map(num => num *2);
                 console.log(numarray);
                 console.log(numarray2); 
