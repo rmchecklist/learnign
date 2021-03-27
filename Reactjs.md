@@ -353,14 +353,14 @@ Example of class:
           <h1>Hi, I'm a React App</h1>
         </div>
       );
-   
+   ```
    This can be translated into 
-   
+   ```
   return React.createElement('div', {className: 'App'},   React.createElement('h1', null, 'Does this work?'));
-  
+  ```
   Since it is cumbersome, we can use JSX code 
-    Same above text can created via React.createElement
-    ```
+    
+    
 
 
 
