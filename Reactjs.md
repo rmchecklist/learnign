@@ -545,5 +545,81 @@ In App.js
         });
       };
     ```
+ 9. When you have multiple state values, we should update all when we update any specific state values
  
+ ```
+ Original Value:
+ 
+ const [personState, setPersonState] = useState({
+    person : [
+    {name: "Madhav", age:3},
+    {name: "Elakya", age:32},
+    {name: "Ygnesh", age:34}
+    ],
+    otherState: ['some other value']
+    });
+    
+ Updated value:
+ 
+ setPersonState({
+      person : [
+        {name: "Madhav Rengith", age:3},
+        {name: "Elakya", age:32},
+        {name: "RM", age:36}
+      ]
+    });
+    
+ Here otherstate object values is not updated, so it will removed from udpated state value
+ 
+ ```
+ 
+ 10. When you have multiple state values then create as much you need using userState
+
+```
+Original value:
+
+const [personState, setPersonState] = useState({
+    person : [
+    {name: "Madhav", age:3},
+    {name: "Elakya", age:32},
+    {name: "Ygnesh", age:34}
+    ] 
+    });
+  
+  const [otherState, setOtherState] = useState({
+    otherState: ['some other value']
+  });
+  
+  
+  updated value:
+  
+  setPersonState({
+      person : [
+        {name: "Madhav Rengith", age:3},
+        {name: "Elakya", age:32},
+        {name: "RM", age:36}
+      ]
+    });
+    
+ Since otherState object value is defined seperately, When we update setPersonState objcet, it won't affect the otherState object value   
+```
+
+### Passing method Reference between Components
+
+1. When we want to add onClick function on the Person.js component, then we can pass the event name as props and access them from Person.js class
+
+```
+App.js
+
+<Person name={this.state.persons[1].name} 
+ age={this.state.persons[1].age}
+ click={this.swithNameHandler}>My hobbies are: Watching TV</Person>
+ 
+ Person.js
+ 
+ <p onClick={props.click}>I'm {props.name} and I'm {props.age} old</p>
+         
+
+```
+
 
