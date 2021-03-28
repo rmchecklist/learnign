@@ -622,4 +622,25 @@ App.js
 
 ```
 
+2. Click bind to add arguments to the function
+```
+<button onClick={**this.swithNameHandler.bind(this, "Rengith")**}>Switch Name</button>
+
+swithNameHandler = (**name**) => {
+      this.setState({
+        persons : [
+          {name: name, age:"3"},
+          {name: "Elakya S", age:"32"},
+          {name: "Ygnesh", age:"34"}
+        ]
+      })
+  }
+```
+
+3. Pass the same arguments to child component(Person.js)
+```
+<Person name={this.state.persons[1].name} 
+         age={this.state.persons[1].age}
+         **click={this.swithNameHandler.bind(this, "Madhav Rengith")}**>My hobbies are: Watching TV</Person>
+```
 
