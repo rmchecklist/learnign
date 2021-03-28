@@ -375,7 +375,7 @@ Example of class:
 ~~<h1></h1>~~
 ```
 
-## Creating a functional components
+## Creating a functional components(Components are core building blocks of React apps)
 
 1. Create a new folder under src, best practice is to create a folder name starts with Uppercase, this would avoid any html tags e.g. Person
 
@@ -399,8 +399,89 @@ export default person
         ```
         import Person from './Person/Person'
         ```
-     - Use the person compoent like html element
+     - Use the person component like html element
         ```
         <Person />
         ```
+
+### Functional vs Class based component
+    - Functional component - Stateless component
+        ```
+        e.g.
+        
+        const cmp = () => { return <div>some JSX</div> }
+       ```
+    - Class bases component - Stateful component
+    ```
+    class Cmp extends Component { render () { return <div>some JSX</div> } }
+    ```
     
+   - Compoent dynamic content can placed by using {} e.g. Math.random()
+
+## Working with props
+
+ - When we have a component ready, then can pass the value through component tag and this will read by an argument in the component function(props)
+ ```
+ const person = (props) => {
+    return <p>I'm {props.name} and I'm {props.age} old</p>
+}
+
+In App.js
+
+<Person name="Madhav" age="3" />
+ ```
+ 
+ ## Understanding the children props
+ 
+ - Any content between html element can be accessed by props.children. This can be any simple and complex html elements.
+ ```
+   <div>
+        <p>I'm {props.name} and I'm {props.age} old</p>
+        <p>{props.children}</p>
+    </div>
+ ```
+ ## Understanding & using state
+ 
+    - State can used in Class components which extend Component
+        - state can be accessed by special variable **state**
+        - e.g. state = { person: [{name:"MR", age:3}]}
+        - access this variable by this.state.person[0].name
+        - All class variable and method can access using this keyword.
+
+## Props and State
+
+ - Props ==> Can pass the data from parent compoent to child
+    e.g.
+    
+    ```
+    App.js(Parent component)
+    
+    <Person name="Madhav" age="3">
+    
+    Person.js(Child component)
+    
+    const person = (props) => {
+        return (
+            <div><p>{props.name}</p></div>
+        );
+    }
+    ```
+- State ==> State is used to change the component, and trigger an UI update
+
+### Calling a function
+
+- When call JSX function we should follow camelCase
+  e.g. onClick={this.swithcNameHandler}
+- JSX function should be case came e.g. onClick
+- Calling name of the function by this.function_name
+- Do not use paranthesis'()', if we use then function will be called at page loads
+- best practice is to use Handler at end of the function.
+
+
+### Manipulating the state
+
+- Change the state of object can be acheived by **this.setState({})**;
+- It just update the existing values and won't discard if any additioanl information what we are not updating as part of the setState 
+
+
+
