@@ -483,5 +483,67 @@ In App.js
 - Change the state of object can be acheived by **this.setState({})**;
 - It just update the existing values and won't discard if any additioanl information what we are not updating as part of the setState 
 
+### useState() Hook for state manipulation for funcational based component
 
+1. Change the app based component to functional based component
+    ```
+    const App = (props) => {}
+    ```
+2. Import UseState to achieve hook/user state
+    ```
+    import {useState} from 'react'
+    ```
+3. return JSX value
+
+    ```
+     return (<div className="App">
+        <h1>Hi, I'm a React App</h1>
+        <button onClick={swithNameHandler}>Switch Name</button>
+        <Person name={personState.person[0].name} age={personState.person[0].age}  />
+        <Person name={personState.person[1].name} age={personState.person[1].age}>My hobbies are: Watching TV</Person>
+        <Person name={personState.person[2].name} age={personState.person[2].age}/>
+      </div>);
+    ```
+4. use useState method to create state object 
+
+    ```
+    useState({
+        person : [
+        {name: "Madhav", age:3},
+        {name: "Elakya", age:32},
+        {name: "Ygnesh", age:34}
+        ]});
+    ```
+5. useState method can return to objects, first args is current state and 2nd args is update state, Use destructing to assign the values
+    
+    ```
+    const [personState, setPersonState] = useState({
+        person : [
+        {name: "Madhav", age:3},
+        {name: "Elakya", age:32},
+        {name: "Ygnesh", age:34}
+        ]});
+    ```
+    
+ 6. In place of this.state use personstate[1st args from useState()]
+ 
+ ```
+ <Person name={personState.person[0].name} age={personState.person[0].age}  />
+ ```
+ 
+ 7. When call the onClick method, use **swithNameHandler** inplace of **this.swithNameHandler**
+ 8. onClick Method can placed inside App method, update the state object using setPersonState method
+    
+    ```
+    const swithNameHandler = () => {
+        setPersonState({
+          person : [
+            {name: "Madhav Rengith", age:3},
+            {name: "Elakya", age:32},
+            {name: "RM", age:36}
+          ]
+        });
+      };
+    ```
+ 
 
