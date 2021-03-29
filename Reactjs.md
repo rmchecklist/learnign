@@ -649,3 +649,37 @@ swithNameHandler = (name) => {
 <button onClick={() => this.swithNameHandler("Elakya Sekar")}>Switch Name</button>
 ```
     
+### Adding two way binding
+
+- When input changed from child component and it should udpate from to parent compoent(update it's state)
+
+```
+App.js
+
+<Person name={this.state.persons[0].name} 
+ age={this.state.persons[0].age}  
+ change={this.nameChangedHandler}/>
+ 
+ nameChangedHandler = (event) => {
+    this.setState({
+      persons : [
+        {name: event.target.value, age:"3"},
+        {name: "Elakya S", age:"32"},
+        {name: "Ygnesh", age:"34"}
+      ]
+    })
+}
+
+Person.js
+
+<input type="text" onChange={props.change} value={props.name}/>
+
+Browser throw warning message, when we have value without onChange event.
+
+When the user inputs change, and it is automatically udpate the state and component
+
+```
+
+### Adding styling with Stylesheets
+
+
