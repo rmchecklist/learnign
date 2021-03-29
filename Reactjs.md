@@ -714,5 +714,32 @@ import './Person.css'
 
 ### Working with inline styles
 
+- Add style class into CSS element, Since it is method level variable, we can directly call by the name, no need of this
+```
+<button 
+  style={style}
+  onClick={() => this.swithNameHandler("Elakya Sekar")}>Switch Name</button>
+```
+
+- Declare the style object inside the render() method
+```
+const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+```
 
 
+### Assignment#1
+1. Create new project name called Assignment_1
+```
+create-react-app react_assignment_1
+```
+2. Start the server from application folder [react_Assignment_1]
+3. Create two components: UserInput and UserOutput
+```
+
+```
