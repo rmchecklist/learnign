@@ -624,9 +624,9 @@ App.js
 
 2. Click bind to add arguments to the function
 ```
-<button onClick={**this.swithNameHandler.bind(this, "Rengith")**}>Switch Name</button>
+<button onClick={this.swithNameHandler.bind(this, "Rengith")}>Switch Name</button>
 
-swithNameHandler = (**name**) => {
+swithNameHandler = (name) => {
       this.setState({
         persons : [
           {name: name, age:"3"},
@@ -641,6 +641,11 @@ swithNameHandler = (**name**) => {
 ```
 <Person name={this.state.persons[1].name} 
          age={this.state.persons[1].age}
-         **click={this.swithNameHandler.bind(this, "Madhav Rengith")}**>My hobbies are: Watching TV</Person>
+         click={this.swithNameHandler.bind(this, "Madhav Rengith")}>My hobbies are: Watching TV</Person>
 ```
-
+4. Instead of bind, we can use annoymouns function to achieve the same result
+    - If possible use bind function than annoymous function, it faster rendering 
+```
+<button onClick={() => this.swithNameHandler("Elakya Sekar")}>Switch Name</button>
+```
+    
