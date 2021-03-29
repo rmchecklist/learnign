@@ -682,4 +682,37 @@ When the user inputs change, and it is automatically udpate the state and compon
 
 ### Adding styling with Stylesheets
 
+1. Add className on Person.js
+
+```
+<div className="Person">
+    <p onClick={props.click}
+    >I'm {props.name} and I'm {props.age} old</p>
+    <p>{props.children}</p>
+    <input type="text" onChange={props.change} value={props.name}/>
+</div>
+```
+2. Create Person.css folder under Person folder
+3. Add css style on Person.css
+
+```
+.Person {
+    width: 60%;
+    margin: auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+}
+```
+
+4. Import Person.css 
+
+```
+import './Person.css'
+```
+
+### Working with inline styles
+
+
 
