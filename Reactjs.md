@@ -753,3 +753,131 @@ create-react-app react_assignment_1
 - Components & Props: https://reactjs.org/docs/components-and-props.html
 - Listenable Events: https://reactjs.org/docs/events.html
 
+### Rendering the content conditionally
+
+- we have ternary oprator to conditionally display the content
+
+```
+<div>
+{ this.state.showPerson ? 
+
+<Person
+    name={person.name}
+    age={person.age}
+    key={person.id}
+    click={() => this.deleteNameHandler(personIndex)}
+  />
+
+     <Person
+        name={person.name}
+        age={person.age}
+        key={person.id}
+        click={() => this.deleteNameHandler(personIndex)}
+      />
+              
+              <Person
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                click={() => this.deleteNameHandler(personIndex)}
+              />
+              
+} : null
+<div>
+```
+
+### Handling dynamic content "The Javascript way"
+
+- create a person object and initialize to null and if state.showPerson object is true and then add person component to persons obeject
+
+```
+let persons = null
+
+if(this.state.showPerson){
+    if (this.state.showPerson) {
+      persons = (
+        <div>
+          {this.state.persons.map((person, personIndex) => {
+            return (
+              <Person
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                click={() => this.deleteNameHandler(personIndex)}
+              />
+            );
+          })}
+        </div>
+      );
+    }
+
+}
+```
+
+- This snippets will be called inside the render(), anytime state object changes render method will be trigger automatically, persons object will initialize to null and then set the value based upon the showPersons value
+
+### Outputting list
+
+- Render the component by using list 
+
+```
+ {this.state.persons.map((person, personIndex) => {
+            return (
+              <Person
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                click={() => this.deleteNameHandler(personIndex)}
+              />
+            );
+          })}
+```
+
+### List and State
+
+- We can click handler the delete person componet
+
+```
+ deleteNameHandler = (personIndex) => {
+    //  const persons = this.state.persons;
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
+  };
+```
+
+### Updating state immutably
+
+--When we mutate the state we should copy the state object and then update, several ways to do these
+     - Use slice() method to create a copy of the array
+     - user spread(ES6)
+
+```
+deleteNameHandler = (personIndex) => {
+    //  const persons = this.state.persons;
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
+  };
+```
+
+### List and Keys
+
+- all componet should have unique key value to identify the previous component
+
+```
+<div>
+          {this.state.persons.map((person, personIndex) => {
+            return (
+              <Person
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                click={() => this.deleteNameHandler(personIndex)}
+              />
+            );
+          })}
+```
+
