@@ -919,7 +919,7 @@ deleteNameHandler = (personIndex) => {
     this.setState({persons:persons})
     }
 ```
-    2.1 find the current component index(person index) using person.findIndex
+2.1 find the current component index(person index) using person.findIndex
 
 ```
 const personIndex = this.state.persons.findIndex(p => {
@@ -927,26 +927,26 @@ const personIndex = this.state.persons.findIndex(p => {
     })
     This will return current person index 
 ```
-    2.2 Copy of the person by using person index, using ES7 spread to take the copy of the object
+2.2 Copy of the person by using person index, using ES7 spread to take the copy of the object
 
 ```
 const person = {...this.state.persons[personIndex]};
 ```
-   2.3 Update the person name 
+2.3 Update the person name 
 
 ```
 person.name = event.target.value;
 ```
-    2.4 Spread(Copy) the current state object
+2.4 Spread(Copy) the current state object
 
 ```
 const persons = [...this.state.persons];
 ```
-    2.5 Update the current person to persons object
+2.5 Update the current person to persons object
 ```
 persons[personIndex] = person;
 ```
-    2.6 Update the state object
+2.6 Update the state object
 
 ```
 this.setState({persons:persons})
