@@ -1078,14 +1078,14 @@ return (
   let box = null;
 
   const textChar = currentState.inputFieldText.split('');
-  box = textChar.map((t, id) => {
+  box = textChar.map((t, id) => { 
     return (<Char 
       key={id}
       Text={t} 
       click={()=>{removeBox(t)}}/>); ==> Split the current string object, this would convert to array and then using map function to create Char component
   });
-
-
+  
+  
   const textChangeHandler = (event) => {
       updateState({
         inputFieldTextLength : event.target.value.length, --> When type the text on text field, udpate the state using updateState object
@@ -1106,6 +1106,14 @@ const removeBox = (text) => {
       })
       console.log("Test1==>"+fieldTxt)
       const fieldText = fieldTxt.slice(0, findIndex) + fieldTxt.slice(findIndex+1); - Remove the current selected text 
+      
+      ## Alternatively we can use 
+      
+      const fieldText = currentState.inputFieldText.split('') ==> Char Array
+      fieldText.splice(findIndex, 1) ==> Remove the char from indexed position
+      const updatedText  = fieldText.join(''); ==> Join all the char and converts to string
+      
+      
       console.log("Test=>"+fieldText.replaceAll(',', ''));
 
       updateState({
@@ -1116,3 +1124,9 @@ const removeBox = (text) => {
   }
   
 ```
+
+## Useful Resources & Links
+
+- Conditional Rendering: https://reactjs.org/docs/conditional-rendering.html
+- Lists & Keys: https://reactjs.org/docs/lists-and-keys.html
+
