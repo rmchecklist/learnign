@@ -995,5 +995,39 @@ import {useState} from 'react';
       });
   }
 ```
-### 2. Create a new component(=> Validation component) which receives the text length as prop
+2. Create a new component(=> Validation component) which receives the text length as prop
+3. Inside the validation component either output "Text long enough" or "Too short" depending on the text length(e.g. take 5 as min length
+
+2.1 Create validation component, set the paragraph value based upon the input field text
+
+```
+const Validation = (props) => {
+    let textSize = null;
+
+    if(props.Size > 5){
+        textSize = "Text too long";
+    }else
+    {
+        textSize = "Text too short";
+    }
+    return (
+        <p>Current Field Text length is: {textSize}</p>
+    );
+}
+```
+2.2 Add validation component to App component
+
+```
+return (
+    <div className="App">
+      <input type="text"
+        onChange={(event)=>{textChangeHandler(event)}}
+      />
+      <p>Entered Text length: {currentState.inputFieldTextLength}</p>
+
+      <Validation Size={currentState.inputFieldTextLength}/>
+    </div>
+```
+4. Create another component(=> CharComponent) and style it is an inline box
+
 
