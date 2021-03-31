@@ -880,4 +880,4 @@ deleteNameHandler = (personIndex) => {
             );
           })}
 ```
-
+### Flexible list
