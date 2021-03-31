@@ -955,10 +955,45 @@ this.setState({persons:persons})
 ## Assignment#2
 
 1. Create an input field (in App component) with a change listener which outputs the length of the entered text below it(e.g. in a paragraph)
-    - Create a new project and start the app
+
+1.1 Create a new project and start the app
 ```
 create-react-app assignment_2
 cd create-react-app assignment_2
 npm start
 ```
-    
+1.2 Import useState from react
+
+```
+import {useState} from 'react';
+```
+
+1.3. Create a useState of maintaining the state of input field length
+
+```
+ const [currentState, updateState] = useState({
+    inputFieldTextLength : 0
+  })
+  
+```
+1.4 Add onChange event and add state variable to paragraph
+
+```
+<div className="App">
+  <input type="text"
+    onChange={(event)=>{textChangeHandler(event)}}
+  />
+  <p>Entered Text length: {currentState.inputFieldTextLength}</p>
+</div>
+```
+1.5 Create onChange handler method textChangeHandler 
+
+```
+  const textChangeHandler = (event) => {
+      updateState({
+        inputFieldTextLength : event.target.value.length        
+      });
+  }
+```
+### 2. Create a new component(=> Validation component) which receives the text length as prop
+
