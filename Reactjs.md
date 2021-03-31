@@ -881,3 +881,74 @@ deleteNameHandler = (personIndex) => {
           })}
 ```
 ### Flexible list
+
+- Since we used list iteration to populate the component, now we are going to update the input element and change it respective element than all, Here are the steps
+
+1. Add change event to Person component
+
+```
+ <Person
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                click={() => this.deleteNameHandler(personIndex)}
+                change = {(event) => this.swithNameHandler(event, person.id)}
+              />
+```
+    - We are passing event and person.id to identify the current value change and respective component(by person.id)
+        -need to use ES6 function to pass the event and person.id or else use bind function to achieve this
+        ```
+        change = {(event) => this.swithNameHandler(event, person.id)}
+        ```
+2. Create a switchNameHandler function
+
+```
+ swithNameHandler = (event, personId) => {
+
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === personId;
+    })
+
+    const person = {...this.state.persons[personIndex]};
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState({persons:persons})
+    }
+```
+    2.1 find the current component index(person index) using person.findIndex
+
+```
+const personIndex = this.state.persons.findIndex(p => {
+      return p.id === personId;
+    })
+    This will return current person index 
+```
+    2.2 Copy of the person by using person index, using ES7 spread to take the copy of the object
+
+```
+const person = {...this.state.persons[personIndex]};
+```
+   2.3 Update the person name 
+
+```
+person.name = event.target.value;
+```
+    2.4 Spread(Copy) the current state object
+
+```
+const persons = [...this.state.persons];
+```
+    2.5 Update the current person to persons object
+```
+persons[personIndex] = person;
+```
+    2.6 Update the state object
+
+```
+this.setState({persons:persons})
+```
+
