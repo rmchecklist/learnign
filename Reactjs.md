@@ -1030,4 +1030,89 @@ return (
 ```
 4. Create another component(=> CharComponent) and style it is an inline box
 
+```
+import React from 'react';
+import './Char.css';
 
+const Char = (props) => {
+    return(
+        <div className="Char" onClick={props.click}>
+            <p>{props.Text}</p>
+        </div>
+    );
+}
+
+export default Char;
+
+Char.css
+
+.Char {
+    display: inline-block;
+    padding: 16px;
+    text-align: center;
+    margin: 16px;
+    border: 1px solid black;
+}
+
+```
+5. Render a list of Char components where each Charcomponent receives a different letter of the entered text (in the initial input field) as a prop
+
+```
+
+return (
+    <div className="App">
+      <input type="text"
+        onChange={(event)=>{textChangeHandler(event)}}
+        value = {currentState.inputFieldText}
+      />
+      <p>Entered Text length: {currentState.inputFieldTextLength}</p>
+
+      <Validation Size={currentState.inputFieldTextLength}/>
+      
+      {box}
+
+    </div>
+  );
+  
+  
+  let box = null;
+
+  const textChar = currentState.inputFieldText.split('');
+  box = textChar.map((t, id) => {
+    return (<Char 
+      key={id}
+      Text={t} 
+      click={()=>{removeBox(t)}}/>); ==> Split the current string object, this would convert to array and then using map function to create Char component
+  });
+
+
+  const textChangeHandler = (event) => {
+      updateState({
+        inputFieldTextLength : event.target.value.length, --> When type the text on text field, udpate the state using updateState object
+        inputFieldText: event.target.value     
+      });
+  }
+  
+```
+
+6. When you clikc a Charcomponent it should be removed from the entered text 
+
+```
+const removeBox = (text) => {
+    if(text.length > 0){
+      const fieldTxt = [...currentState.inputFieldText]; --> Use Spread to copy the state object
+      const findIndex = fieldTxt.findIndex((t) => { --> Return the index of the selected text box
+        return text === t;
+      })
+      console.log("Test1==>"+fieldTxt)
+      const fieldText = fieldTxt.slice(0, findIndex) + fieldTxt.slice(findIndex+1); - Remove the current selected text 
+      console.log("Test=>"+fieldText.replaceAll(',', ''));
+
+      updateState({
+        inputFieldText: fieldText.replaceAll(',', '') --> Update the state with replacing ',' with ''   
+      });
+
+    }
+  }
+  
+```
