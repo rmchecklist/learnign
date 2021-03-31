@@ -952,3 +952,13 @@ persons[personIndex] = person;
 this.setState({persons:persons})
 ```
 
+## Assignment#2
+
+1. Create an input field (in App component) with a change listener which outputs the length of the entered text below it(e.g. in a paragraph)
+    - Create a new project and start the app
+```
+create-react-app assignment_2
+cd create-react-app assignment_2
+npm start
+```
+    
