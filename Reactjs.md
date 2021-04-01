@@ -1230,3 +1230,71 @@ render() {
 
 5. Using Radium for Medial Queries
 
+ - Create a const syle variable
+
+```
+const style = {
+        '@media (min-width: 500px)': {
+            width: '450px'
+        }
+    };
+```
+
+- add style to person component
+
+```
+return (
+        <div className="Person" sytle={style}> 
+            <p onClick={props.click}
+            >I'm {props.name} and I'm {props.age} old</p>
+            <p>{props.children}</p>
+            <input type="text" onChange={props.change} value={props.name}/>
+        </div>
+    );
+```
+- On app component, import named component StyleRoot and wrap the entire component
+
+```
+import Radium, { StyleRoot } from 'radium';
+ <StyleRoot>
+ </StyleRoot>
+
+```
+
+6. Styled components
+ - https://styled-components.com/ 
+
+   - install styled-components 
+    -  npm install --save styled-components
+
+    - import styled components
+
+```
+import styled from 'styled-components';
+
+create a style variable back tik(`)==> template literal
+
+const StyledDiv = styled.div`
+    width: 60%;
+    margin: 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+
+    @media (min-width: 500px) {
+        width: '450px'
+    }
+`;
+
+Add styled component in place of div
+//<div className="Person" sytle={style}> 
+        <StyledDiv>
+            <p onClick={props.click}
+            >I'm {props.name} and I'm {props.age} old</p>
+            <p>{props.children}</p>
+            <input type="text" onChange={props.change} value={props.name}/>
+        </StyledDiv>
+```
+  
+ 
