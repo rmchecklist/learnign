@@ -745,7 +745,7 @@ create-react-app react_assignment_1
 ```
 
 
-# Useful Resources & Links
+### Useful Resources & Links
 
 - create-react-app: https://github.com/facebookincubator/create-react-app
 - Introducing JSX: https://reactjs.org/docs/introducing-jsx.html
@@ -1138,7 +1138,7 @@ const removeBox = (text) => {
 
 2. Setting Styles Dynamically
   
-    - Since all codes are in Javascrpit we can call the variable name to set the colors dynamically
+- Since all codes are in Javascrpit we can call the variable name to set the colors dynamically
 
 ```
 const style = {
@@ -1195,8 +1195,8 @@ if(this.state.persons.length <= 1){
 ```
 npm install --save radium
 ```
-    - import Radium on App.js
-    - Enclose the App component with higher order component Radium
+- import Radium on App.js
+- Enclose the App component with higher order component Radium
 
 ```
 import Radium from 'radium';
