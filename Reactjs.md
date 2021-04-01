@@ -1171,5 +1171,60 @@ if (this.state.showPerson) {
 
 ```
 
+3. Setting Class Names Dynamically
+    - creating classes variable, and push styles based upon the conditions.
+    - On the className, we should add .join(' ') make this object to string to add all styles with space 
 
+```
+let classes = [];
+
+if(this.state.persons.length >= 2){
+  classes.push('red');
+}
+
+if(this.state.persons.length <= 1){
+  classes.push('bold');
+}
+
+<p className={classes.join(' ')}>This is really working!</p>
+```
+4. Adding and using Radium
+    - Adding button hover won't be added through inline styling, since it isn't CSS property we can't integrate the styling, in order to do that we need to use third party package which is radim
+    - Installing radium
+
+```
+npm install --save radium
+```
+    - import Radium on App.js
+    - Enclose the App component with higher order component Radium
+
+```
+import Radium from 'radium';
+export default Radium(App);
+```
+     - Now all sudo selector from css can be accessed through Radium package, but we need to add in quotes
+
+```
+render() {
+    const style = {
+      backgroundColor: "green",
+      color: 'white',
+      font: "inherit",
+      border: "1px solid blue",
+      padding: "8px",
+      cursor: "pointer",
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
+    };
+    
+    
+    style.backgroundColor = 'red';
+      style[':hover'] =  {
+        backgroundColor: 'salmon',
+        color: 'black'
+    
+    
+```
 
