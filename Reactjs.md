@@ -1125,8 +1125,12 @@ const removeBox = (text) => {
   
 ```
 
-## Useful Resources & Links
+### Useful Resources & Links
 
 - Conditional Rendering: https://reactjs.org/docs/conditional-rendering.html
 - Lists & Keys: https://reactjs.org/docs/lists-and-keys.html
+
+
+# Styling React components & elements
+
 
