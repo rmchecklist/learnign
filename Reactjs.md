@@ -1133,4 +1133,43 @@ const removeBox = (text) => {
 
 # Styling React components & elements
 
+1. Outlining the problem set
+     - There are many limitation on the inline styling and also create any styling on the component css file might affect the global styling
+
+2. Setting Styles Dynamically
+  
+    - Since all codes are in Javascrpit we can call the variable name to set the colors dynamically
+
+```
+const style = {
+      backgroundColor: "green",
+      color: 'white',
+      font: "inherit",
+      border: "1px solid blue",
+      padding: "8px",
+      cursor: "pointer",
+    };
+    
+if (this.state.showPerson) {
+      persons = (
+        <div>
+          {this.state.persons.map((person, personIndex) => {
+            return (
+              <Person
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                click={() => this.deleteNameHandler(personIndex)}
+                change = {(event) => this.swithNameHandler(event, person.id)}
+              />
+            );
+          })}
+        </div>
+      );
+      style.backgroundColor = 'red';
+    }
+
+```
+
+
 
