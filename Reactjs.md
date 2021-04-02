@@ -1349,3 +1349,16 @@ const StyledButton = styled.button`
 
 ```
 
+9. Working with CSS component
+
+ - eject the under the hood configuration
+
+```
+Stop the server 
+
+Ctrl+C
+
+execute eject command 
+
+npm run eject
+```
