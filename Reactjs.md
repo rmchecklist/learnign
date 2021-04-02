@@ -1297,4 +1297,55 @@ Add styled component in place of div
         </StyledDiv>
 ```
   
- 
+ 7. More on styled component
+ - add styled-component style to button
+
+```
+const StyledButton = styled.button`
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: lightgreen;
+    color: black;
+  }
+`;
+
+
+<StyledButton onClick={this.togglePerson}>
+          Toggle Person
+        </StyledButton>
+        
+        
+```
+
+8. Styled component and Dynamic styles
+
+- add conditional style using props
+
+```
+<StyledButton alt={this.state.showPerson} ==> This the property use to conditionally format the style
+          onClick={this.togglePerson}>
+          Toggle Person
+        </StyledButton>
+        
+        
+        
+ const StyledButton = styled.button`
+  background-color: ${props => props.alt ? 'red' : 'green'}; ==> Pass the property handle the styling conditionally
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.alt ? 'salmon': 'lightgreen' };;
+    color: black;
+  }
+`;
+
+```
+
