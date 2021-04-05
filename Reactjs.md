@@ -1349,9 +1349,13 @@ const StyledButton = styled.button`
 
 ```
 
-9. Working with CSS component
+9. Working with CSS modules
 
- - eject the under the hood configuration
+Below steps for older versions:
+
+
+- In order to use CSS modules, you need to do the following steps to achieve this
+    - eject the under the hood configuration
 
 ```
 Stop the server 
@@ -1361,4 +1365,71 @@ Ctrl+C
 execute eject command 
 
 npm run eject
+```
+
+New version:
+
+1. Rename the css file into [Component name].[moduel].css e.g. Person.module.css
+2. Import the css by 
+
+```
+import classesStyle from "./App.module.css";
+```
+3. Declare btnclass variable 
+
+```
+ let btnClasses = [classesStyle.Button];
+```
+5. update the button element 
+
+```
+<button className={btnClasses.join(' ')} 
+          alt={this.state.showPerson}
+          onClick={this.togglePerson}>
+          Toggle Person
+        </button>
+```
+6. Update the conditional block style
+
+```
+btnClasses.push(classesStyle.Red);
+```
+
+7. App.module.css 
+
+```
+.App {
+  text-align: center;
+}
+
+.red {
+  color:red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.Button {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+}
+
+.Button:hover {
+  background-color: lightgreen;
+    color: black;
+}
+
+.Button.Red {
+  background-color: red;
+}
+
+.Button.Red:hover {
+  background-color: salmon;
+}
 ```
