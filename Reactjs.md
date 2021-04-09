@@ -1433,3 +1433,105 @@ btnClasses.push(classesStyle.Red);
   background-color: salmon;
 }
 ```
+
+### More on CSS modules
+
+ - When we have classes defined in css module file, we can call the classed as below
+ ```
+ App.module.css
+.Button {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+}
+
+.Button:hover {
+  background-color: lightgreen;
+    color: black;
+}
+
+.Button.Red {
+  background-color: red;
+}
+
+.Button.Red:hover {
+  background-color: salmon;
+}
+
+App.js
+
+import the classes by using import statement
+
+import classesStyle from "./App.module.css";
+
+use the app module by using 
+
+<div className={classesStyle.App}>
+
+In order to use conditional statement, declare the variable array inside the render()
+
+
+let btnClasses = [classesStyle];
+
+push the red class if records exists
+
+ btnClasses.push(classesStyle.Red);
+ 
+ <button className={classesStyle.Button} 
+          alt={this.state.showPerson}
+          onClick={this.togglePerson}>
+          Toggle Person
+        </button>
+ ```
+ 
+  - Altenatively we can append the App on the css module class
+
+```
+App.module.css
+
+.App button {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+}
+
+.App button:hover {
+  background-color: lightgreen;
+    color: black;
+}
+
+.App button.Red {
+  background-color: red;
+}
+
+.App button.Red:hover {
+  background-color: salmon;
+}
+
+App.js
+
+So everything inside the App[CSS class] can directly used the button element classes
+
+declare a empty array 
+
+let btnClasses = [];
+
+conditional statement use module class name to assign the class
+
+btnClasses = classesStyle.Red;
+
+<button className={btnClasses} 
+          alt={this.state.showPerson}
+          onClick={this.togglePerson}>
+          Toggle Person
+        </button>
+```
+  
