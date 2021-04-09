@@ -1595,3 +1595,74 @@ Now you can use className="Post"  anywhere in your app and receive that styling.
 
 ##### Using Error Bountaries(React 16+)
 
+-- Error boundaries are useful when you know you can't handle the error on the runtime.
+
+Steps to setup Error boundaries
+
+1. Create ErrorBoundary class
+
+```
+class ErrorBoundary extends Component {
+    state = {
+        hasError: false,
+        errorMessage: ''
+    }
+
+    componentDidCatch = (error, info) => {
+        this.setState({
+            hasError: true,
+            errorMessage: error
+        })
+    }
+
+    render(){
+        if(this.state.hasError){
+            return <h1>{this.state.errorMessage}</h1>;
+        }else{
+            return this.props.children;
+        }
+    }
+}
+
+export default ErrorBoundary;
+```
+- we neeed to have a state to maintain the error state and message
+- override the componentDidCatch method, which can pass error and info to this method
+- render error message if there is an erro
+- Or else render this.props.children
+
+- Import the ErrorBoundary into App component
+    - Wrap the ErrorBoundary component into Person component
+    - Add key attribute into outer component 
+
+- When there is a error occured on the person component that will translate to ErrorBounday
+
+```
+App.js
+
+return (
+      <ErrorBoundary key={person.id}><Person
+        name={person.name}
+        age={person.age}
+        click={() => this.deleteNameHandler(personIndex)}
+        change = {(event) => this.swithNameHandler(event, person.id)}
+      />
+      </ErrorBoundary>
+      
+Person.js  
+
+const number = Math.random();
+
+if(number > 0.7){
+    throw new Error('Something went wrong');
+}
+```
+
+#### Useful Resources & Links
+Error Boundaries: https://reactjs.org/docs/error-boundaries.html
+Chrome Devtool Debugging: https://developers.google.com/web/tools/chrome-devtools/javascript/
+
+
+
+    
+    
