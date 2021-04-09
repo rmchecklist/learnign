@@ -1575,3 +1575,23 @@ Now you can use className="Post"  anywhere in your app and receive that styling.
 
 - Using CSS Modules in create-react-app Projects: https://medium.com/nulogy/how-to-use-css-modules-with-create-react-app-9e44bec2b5c2
 - More information about CSS Modules: https://github.com/css-modules/css-modules
+
+### Debugging React Apps
+
+##### Understanding error messages
+
+- Looking at the errors, and read the top most eror logs from browser console
+
+##### Finding logical errors by using dev tools & sourcemaps
+
+- Debug the code try to find the object attributes, if any attributes are not find then fix the issues and rerun the application.
+
+##### Working with React developer tools
+
+- Install React developer tools
+    -    install tool from chrome web store :: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+    -    Run the react application and click on component from dev tool(more >> Components)
+    -    we can change the attribute name and props
+
+##### Using Error Bountaries(React 16+)
+
