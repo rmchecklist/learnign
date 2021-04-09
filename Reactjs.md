@@ -1662,6 +1662,20 @@ if(number > 0.7){
 Error Boundaries: https://reactjs.org/docs/error-boundaries.html
 Chrome Devtool Debugging: https://developers.google.com/web/tools/chrome-devtools/javascript/
 
+# Drving deeper into Components and React internals
+
+ - Better project structure
+
+1. Create components folder to keep all comoponents into it, if there is any list componentsm then keep component inside the list comp
+
+```
+Components
+        -->Persons
+                --> Person
+```
+
+2. Create assets folder to keep all images 
+3. Create Container folder to move all App.js related files (App.js, App.css, App.test.js)
 
 
     
