@@ -119,3 +119,115 @@ task#2:
 	</target>
 </project>
 ```
+
+**Different ways of using classpath element**
+
+- Classpath using location
+
+```
+<classpath>
+	<pathelement location="lib/ext.jar">
+</classpath>
+
+or
+
+<classpath location="lib/ext.jar" />
+
+```
+
+- classpath using path
+
+```
+<classpath>
+	<pathelement path="${classpath}">
+</classpath>
+
+or
+
+<classpath path="${classpath}" />
+
+```
+
+- Classpath using fileset
+
+```
+<classpath>
+	<fileset dir="lib">
+		<include name="**/*.jar">
+	</fileset>
+</classpath>
+```
+
+- Classpath using type dirset
+
+```
+<classpath>
+	<dirset dir="${build.dir}">
+		<include name="apps/**/classes" />
+		<exclude name="apps/**/*Test*" />
+	</fileset>
+</classpath>
+```
+- Using classpath in more than one task
+
+```
+<path id="base.path">
+	<pathelement path="${classpath}">
+</path>
+
+<classpath refid="base.path" />
+```
+
+###### Types in Ant
+
+- classfileset is a specialized type of fileset which give a set of root classes, will include all of the class files upon which the root classes depend.
+	- in order to  use classfileset, we need to download commons-bcel jar file.
+		- https://commons.apache.org/proper/commons-bcel/download_bcel.cgi 
+		- Copy 	bcel-6.5.0.jar file to ANT_HOME/lib folder
+
+
+```
+<?xml version="1.0" encoding="UTF-8" ?> --> XML declaration
+<project basedir="." name="AntProject" default="test"> --> default target set to test
+
+	<description>
+		Use '-projecthelp' in command line to display this project description
+	</description>
+	
+	<target name="test" depends="compile"> --> test target creates jar name myclasses.jar
+		<jar destfile="myclasses.jar">
+			<fileset refid="reqdclasses"/>
+		</jar>
+	</target>
+	<target name="compile" depends="clean">
+		<javac srcdir="." includeantruntime="true" includes="HelloWorld.java, Test.java" destdir=".">
+			<classpath>
+				<pathelement path="."/>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<patternset refid="patternset" />
+			</fileset>
+		</delete>
+	</target>
+	
+	<classfileset id="reqdclasses" dir="."> --> This will take care of all dependent class files, we need to use bcbl jar to use this element
+			<root classname="Test"/>
+	</classfileset>
+	
+	<patternset id="patternset">
+		<include name="*.class" />
+		<include name="*.jar" />
+	</patternset>
+</project>
+```
+
+in order to display description, need to use -projecthelp alon with existing command
+
+```
+ant -buildfile classfileset.xml -projecthelp
+```
