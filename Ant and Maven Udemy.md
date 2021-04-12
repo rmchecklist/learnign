@@ -78,7 +78,9 @@ task#2:
 ```
 
 ##### Dealing with properties
-
+	-- Read property file from internal build file
+	-- call property file from external file
+	
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <project default="test"> --> default target name
@@ -98,5 +100,22 @@ task#2:
 
 ###### Path like structures
 
-- call property file from external file
+- Compile and run the java file
 
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<project default="run"> --> Trigger the target name run
+	<target name="compile"> -->Compile the java file into .class file and place them in to the current dir, in order to compile JAVA_HOME, path variable should be set
+		<javac srcdir="." includeantruntime="true" includes="HelloWorld.java" destdir="."> --> Javac command compile the java file, it needs src dir, includes and destdir
+		</javac>
+	</target>
+	
+	<target name="run" depends="compile"> --> Run the java class before running, it executes compile task
+		<java classname="HelloWorld" fork="true"> --> In order to run, we need to specify the classpath
+			<classpath>
+				<pathelement path="." />
+			</classpath>
+		</java>
+	</target>
+</project>
+```
