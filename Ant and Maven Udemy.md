@@ -231,3 +231,6 @@ in order to display description, need to use -projecthelp alon with existing com
 ```
 ant -buildfile classfileset.xml -projecthelp
 ```
+
+similar to filelist and dirset, multirootfileset can have filelist and dirset
+
