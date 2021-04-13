@@ -234,3 +234,32 @@ ant -buildfile classfileset.xml -projecthelp
 
 similar to filelist and dirset, multirootfileset can have filelist and dirset
 
+
+Filterset --> Filters can be defined as token-value pairs or be read in from a file. 
+
+```
+<copy file="${build.dir}/version.txt" toFile="${dist.dir}/version.txt">
+	<filterset>
+		<filter token="DATE" value="${TODAY}"/>
+	<filterset>
+</copy>
+
+
+you can resue the filterset by keeping outside and call by refid
+
+<filterset id="myfilterset">
+	<filter token="DATE" value="${TODAY}"/>
+<filterset>
+	
+<copy file="${build.dir}/version.txt" toFile="${dist.dir}/version.txt">
+	<filterset refid="myfilterset" />
+</copy>
+
+```
+
+##### List of Tasks in ANT
+
+
+##### command line options
+
+ant -help --> give all options 
