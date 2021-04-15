@@ -1677,6 +1677,82 @@ Components
 2. Create assets folder to keep all images 
 3. Create Container folder to move all App.js related files (App.js, App.css, App.test.js)
 
+##### Section 9: Driving deeper: working with Fragments, Portals & "Ref"
+    
+1. JSX Limitation
+    - All component are wrapped by root element, wraping component will leads to mutiple <div>, this may affect/break the css stying     
+2. Creating a wrapper component
+    - Creating Wrapper component without JSX code and it return just 
+    - This wrapper component can be replaced by <div> root components
+    - Empty wrapper component, it doesn't render any real HTML elements to the DOM. But it fulfills React's/JSX element.    
+```
+const Wrapper = (props) =>{
+    return props.children;
+};
 
-    
-    
+export default Wrapper;
+```
+
+3.React Fragments
+
+ - Intead of Wrapper component, alternatively use empty tag(<></>), if it doesn't work then use <React.Fragment></React.Fragment>
+ - If you import Fragment then we can use <Fragment></Fragment>
+
+```
+Option#1 ==> <></>
+Option#2 ==> <React.Fragment></React.Fragment>
+Option#3 ==> import {Fragment} from 'react' <Fragment></Fragment>
+```
+
+4. Introducing React Portals
+      - Portal can remove <div> soup issue, we can render the element inside the body without any nested element on it.
+
+          1. Created div element on public/index.html 
+
+```
+  <div id="backdrop-root"></div>
+    <div id="overlay-root"></div>
+    <div id="root"></div>
+```
+        2. create backdrop and model overlay compoment and add them using portal 
+```
+import Card from '../Card/Card';
+import Button from '../Button/Button';
+import classes from './ErrorModal.module.css';
+import reactDom from 'react-dom';
+
+const Backdrop = props => {
+    return 	<div className={classes.backdrop} onClick={props.onConfirm}/>;
+};
+
+const ModelOverlay = props => {
+    return (
+        <Card className={classes.modal}>
+                <header className={classes.header}>
+                    <h2>{props.title}</h2>
+                </header>
+                <div className={classes.content}>
+                    <p>{props.message}</p>
+                </div>
+                <footer className={classes.actions}>
+                    <Button onClick={props.onConfirm}>Okay</Button>
+                </footer>
+            </Card>
+    );
+};
+
+
+const ErrorModal = (props) => {
+    return(
+        <>
+           {reactDom.createPortal(<Backdrop onConfirm = {props.onConfirm}/>, 
+           document.getElementById("backdrop-root"))} 
+           {reactDom.createPortal(<ModelOverlay title = {props.title} message = {props.message} 
+                    onConfirm = {props.onConfirm}/>, 
+                    document.getElementById("overlay-root"))}
+        </>      
+    );
+};
+
+export default ErrorModal;
+```
