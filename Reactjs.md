@@ -1685,12 +1685,14 @@ Components
     - Creating Wrapper component without JSX code and it return just 
     - This wrapper component can be replaced by <div> root components
     - Empty wrapper component, it doesn't render any real HTML elements to the DOM. But it fulfills React's/JSX element.    
+
 ```
 const Wrapper = (props) =>{
     return props.children;
 };
 
 export default Wrapper;
+
 ```
 
 3.React Fragments
@@ -1703,8 +1705,7 @@ Option#1 ==> <></>
 Option#2 ==> <React.Fragment></React.Fragment>
 Option#3 ==> import {Fragment} from 'react' <Fragment></Fragment>
 ```
-
-4. Introducing React Portals
+##### 4. Introducing React Portals
       - Portal can remove <div> soup issue, we can render the element inside the body without any nested element on it.
 
           1. Created div element on public/index.html 
@@ -1756,3 +1757,41 @@ const ErrorModal = (props) => {
 
 export default ErrorModal;
 ```
+
+##### 5. Working with ref
+
+1. Import named component 
+
+```
+import React, { useRef} from 'react';
+```
+
+2. Initialize ref
+
+```
+const userRef = useRef();
+const ageRef = useRef();
+```
+
+3. Input element has ref as attribute, you can use this to read the input value
+
+```
+<input id="age" type="number" ref={ageRef}  />
+```
+4. On click on Add user event handler read the input value from ref object
+
+```
+const userRefVal = userRef.current.value;
+const userAgeVal = ageRef.current.value;
+```
+
+5. Reset  the user enter value after click on Add user
+
+```
+userRef.current.value = '';
+ageRef.current.value = '';
+```
+##### 5. Controlled vs Uncontrolled components
+
+ - Controlled components are controlled by react when we use state object, component will be controlled by React
+ - Uncontrolled components are not controlled by React, for example when we use ref these are native element and update this will not be controlled by react.
