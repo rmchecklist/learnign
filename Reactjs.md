@@ -1993,8 +1993,50 @@ dispatchEmail({type: 'USER_INPUT', val: event.target.value});
     - use same state object key for example, this will used in {type: 'USER_INPUT', val: event.target.value} email reducer action
 
 
+5. When you use useEffect, make sure we are adding correct depency to load render at the minimal
 
+for eg.
 
+```
+const {isValid: emailValid} = emailState;
+  const {isValid: passValid} = passwordState;
+  useEffect(()=>{
+    const indentifier = setTimeout(()=> {
+      console.log('checking from validity');
+      setFormIsValid(
+        emailValid && passValid
+      );
+      // dispatchEmail({type: 'USER_INPUT', val: emailState.value});
+      // dispatchPassword({type: "PSWD_INPUT", val: passwordState.value});
+    }, 500);  
+    
+    return () => {
+      console.log('cleanup')
+      clearTimeout(indentifier);
+    }
+
+    }, [emailValid, passValid]);
+```
+
+On above instead of using emailValidState object,we can use isValid method to extract emailValid and passValid, so that when it satisfy the condition and if we add any further char won't change the state and it won't render again.
+
+###### 6. useReducer vs useState for state management
+
+1. useState
+    -   The main state management tool
+    -   Great for independent pieces of state/data
+    -   Great if state updates are easy and limited to a few kinds of updates
+
+2. useReducer
+    - Great if you need more power
+    - should be considered if you have related pieces of state/data
+    - can be helpful if you have more complex state updates
+
+##### 7. Introducing React context(Context AP)
+
+-- Mangaring the state through props, can lead to uncessarry state management
+
+![image](https://user-images.githubusercontent.com/5713791/115080609-0c7ffd00-9ed1-11eb-808e-78d9ca83fa2b.png)
 
 
 
