@@ -1934,4 +1934,67 @@ useEffect(()=> {
 
 ###### 6. Using the useReducer() Hook
 
+- Syntax
+
+```
+const[state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+
+state - state snapshot, values will reads from state object
+dispatchFn - update the state 
+
+reducerFn - get the latest state snapshots, get the action it dispatched and update the new state
+
+inititalState - 
+initialFn - 
+```
+
+- Steps to use useReducer
+
+1. import useReducer 
+
+```
+import {useReducer} from 'react';
+```
+
+2. Initialize the useReducer
+
+```
+const [emailState, dispatchEmail] = useReducer(emailReducer);
+
+~ dispatchEmail 
+
+~ emailReducer(can be defined outside of functional component, all the information required for emailReducer will passed as args) are functions
+    - emailReducer will accept 2 argument last state snapshot and action that was dispatched by dispatchEmail
+~ inittialState
+```
+
+3. define emailReducer function, action argument will be supplied by dispathEmail Funcation
+
+```
+const emailReducer = (state, action) => {
+  if(action.type === 'USER_INPUT'){
+    return {value:action.val, isValid: action.val.includes('@')};   
+  }
+
+  if(action.type === 'INPUT_BLUR'){
+    return {value:state.value, isValid: state.value.includes('@')};
+  }
+
+   return {value:'', isValid: false};
+};
+```
+4. declare dispatchEmail
+
+```
+dispatchEmail({type: 'USER_INPUT', val: event.target.value});
+```
+
+- Take Away:
+    - use same state object key for example, this will used in {type: 'USER_INPUT', val: event.target.value} email reducer action
+
+
+
+
+
+
 
