@@ -2109,6 +2109,50 @@ const Navigation = (props) => {
 
 ##### 9. Tapping into Context with the useContext Hook
 
+- Instead of using AuthContext.Provider and Consumer, we can use useContext named component 
+
+Steps to use:
+
+1. import useContext from react
+2. read the context from useContext
+
+```
+ctx = useContext(AuthContext);
+```
+
+3. Use ctx from #2, AuthContext object can be accessed through this
+
+```
+import React, {useContext} from 'react';
+
+const Navigation = (props) => {
+
+  const ctx = useContext(AuthContext);
+  return (
+    <nav className={classes.nav}>
+      <ul>
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Users</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Admin</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <button onClick={props.onLogout}>Logout</button>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+```
+
+###### 10. Making context Dynamic
 
 
 
