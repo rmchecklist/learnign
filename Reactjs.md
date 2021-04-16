@@ -2036,7 +2036,79 @@ On above instead of using emailValidState object,we can use isValid method to ex
 
 -- Mangaring the state through props, can lead to uncessarry state management
 
-![image](https://user-images.githubusercontent.com/5713791/115080609-0c7ffd00-9ed1-11eb-808e-78d9ca83fa2b.png)
+![image](https://user-images.githubusercontent.com/5713791/115080746-451fd680-9ed1-11eb-8e96-ee16ee2fe78e.png)
+
+##### 8. Using the React Conext API
+
+In order to access the context object, we need to follow the below steps
+
+1. Create AuthContext component
+
+```
+import React from 'react';
+
+const AuthContext = React.createContext({
+    isLoggedIn: false
+});
+
+export default AuthContext;
+```
+
+2. Wrap the compoent with AuthContext provider
+
+```
+App.js
+return (
+    <AuthContext.Provider value={{isLoggedIn: isLoggedIn}}>
+        <MainHeader onLogout={logoutHandler} />
+        <main>
+          {!isLoggedIn && <Login onLogin={loginHandler} />}
+          {isLoggedIn && <Home onLogout={logoutHandler} />}
+        </main>
+      </AuthContext.Provider>
+  );
+```
+
+3. Wrap the componet with AuthContext.Consumer
+    - We can access the ctx using anonymous function inside AuthContext.Consumer
+
+```
+const Navigation = (props) => {
+  return (
+    <AuthContext.Consumer>
+      {
+        (ctx) => {
+          return (
+            <nav className={classes.nav}>
+              <ul>
+                {ctx.isLoggedIn && (
+                  <li>
+                    <a href="/">Users</a>
+                  </li>
+                )}
+                {ctx.isLoggedIn && (
+                  <li>
+                    <a href="/">Admin</a>
+                  </li>
+                )}
+                {ctx.isLoggedIn && (
+                  <li>
+                    <button onClick={props.onLogout}>Logout</button>
+                  </li>
+                )}
+              </ul>
+            </nav>
+          );
+        }
+      }
+      
+    </AuthContext.Consumer>
+  );
+};
+```
+
+##### 9. Tapping into Context with the useContext Hook
+
 
 
 
