@@ -1795,3 +1795,143 @@ ageRef.current.value = '';
 
  - Controlled components are controlled by react when we use state object, component will be controlled by React
  - Uncontrolled components are not controlled by React, for example when we use ref these are native element and update this will not be controlled by react.
+
+
+### Section 10: Advanced: Handling side effects, using reducers & Context
+
+###### 1. What are "Side effects & introducing useEffect"
+        useEffect can be used execute the code specific to state change, it would avoid the infinite loop if any state object changes.
+        
+syntax:
+        
+```
+useEffect(()=> {
+   
+  }, []);
+```
+   
+if we add any variable inside the method, can be executed once or dependencies changed([])
+
+```
+import React, { useState, useEffect } from 'react';
+
+import Login from './components/Login/Login';
+import Home from './components/Home/Home';
+import MainHeader from './components/MainHeader/MainHeader';
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(()=> {
+    console.log('use Effect');
+    const storedUserLogInInfo = localStorage.getItem('isLoggedIn');
+
+    if(storedUserLogInInfo === '1'){
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const loginHandler = (email, password) => {
+    // We should of course check email and password
+    // But it's just a dummy/ demo anyways
+    localStorage.setItem('isLoggedIn', '1');
+    setIsLoggedIn(true);
+  };
+
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+  };
+
+  return (
+    <React.Fragment>
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
+      </main>
+    </React.Fragment>
+  );
+}
+
+export default App;
+
+```
+###### 2. useEffect & Dependencies
+
+- when we add dependencies, useEffect will execute if these variables are changed
+
+```
+useEffect(()=>{
+      setFormIsValid(
+        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+      );
+    }, [enteredEmail, enteredPassword]);
+
+  const emailChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
+
+    
+  };
+```  
+###### 3. Using the useEffect cleanup function
+
+- useEffect has 2 args fucntion and dependencies, in our example we don't want to check for every key stroke instread use setTimeout function to limit the validation and also call return from function this can be annoymous function, which can execute every time(not first time). In this example we can clear the identifier variable for every time it hits.
+```
+useEffect(()=>{
+    const indentifier = setTimeout(()=> {
+      console.log('checking validity');
+      setFormIsValid(
+        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+      );
+    }, 500);  
+    
+    return () => {
+      console.log('CLEANUP');
+      clearTimeout(indentifier);
+    }
+
+    }, [enteredEmail, enteredPassword]);
+```
+
+###### 4. useEffect Summary
+
+- useEffect will execute whenever changes in the dependencies
+- loads once if there is no dependencies
+- cleanup function can be configured for element removal and call before the executes
+
+- The below code will execute after every components rendered.(Every action/Key stroke)
+```
+useEffect(()=> {
+    concole.log('Effect running');
+})
+```
+- Execute for first time not for every render[added empty dependency args]
+```
+useEffect(()=> {
+    concole.log('Effect running');
+}, [])
+```
+- Eexcutes for every password keystroke
+
+```
+useEffect(()=> {
+    concole.log('Effect running');
+}, [enteredPassword])
+```
+- Cleanup function can be called before state funcation not first time
+```
+useEffect(()=> {
+    concole.log('Effect running');
+   return ()=>{console.log('clean up')} 
+}, [enteredPassword])
+```
+- Cleanup function executes, when DOM removed
+
+
+##### 5. Indroducing useReducer & Reducers in General
+ - combine enteredEmail, validateEmail into one, so entered value and validate email Can be one single state that can achieve through reducers
+
+###### 6. Using the useReducer() Hook
+
+
