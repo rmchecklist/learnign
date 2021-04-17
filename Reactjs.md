@@ -2154,5 +2154,298 @@ const Navigation = (props) => {
 
 ###### 10. Making context Dynamic
 
+also pass the handler to useContext, do not include paratheseis [()]
+```
+Apps.js
+
+return (
+    <AuthContext.Provider 
+      value={
+        {isLoggedIn: isLoggedIn,
+          onLogout: logoutHandler
+        }}>
+        <MainHeader onLogout={logoutHandler} />
+        <main>
+          {!isLoggedIn && <Login onLogin={loginHandler} />}
+          {isLoggedIn && <Home onLogout={logoutHandler} />}
+        </main>
+      </AuthContext.Provider>
+  );
+  
+  Navigation.js
+  
+  const Navigation = (props) => {
+
+  const ctx = useContext(AuthContext);
+  return (
+    <nav className={classes.nav}>
+      <ul>
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Users</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Admin</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <button onClick={ctx.onLogout}>Logout</button>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+```
+###### 11. Building & using a custom context provider component
+
+1. create dedicated component for login and logout
+
+```
+auth-context.js
+
+import React, { useState, useEffect } from 'react';
+
+const AuthContext = React.createContext({
+    isLoggedIn: false,
+    onLogout: () => {},
+    onLogin: (email, password) =>{}
+});
+
+
+export const AuthContextProvider = (props) => {
+    console.log('AuthContextProvider');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(()=> {
+        console.log('use Effect');
+        const storedUserLogInInfo = localStorage.getItem('isLoggedIn');
+    
+        if(storedUserLogInInfo === '1'){
+          setIsLoggedIn(true);
+        }
+      }, []);
+
+    const onLogoutHandler = () => {
+        localStorage.removeItem('isLoggedIn');
+        setIsLoggedIn(false);
+    };
+
+    const loginHandler = () => {
+        localStorage.setItem('isLoggedIn', '1');
+        setIsLoggedIn(true);
+    };
+
+    return <AuthContext.Provider value={
+        {isLoggedIn: isLoggedIn, onLogout: onLogoutHandler, 
+            onLogin: loginHandler}
+    }>{props.children}</AuthContext.Provider>;
+}
+
+export default AuthContext;
+
+```
+
+2. Wrap the app component with AuthContext.Provider named component
+
+```
+index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import { AuthContextProvider } from './store/auth-context';
+
+ReactDOM.render(
+<AuthContextProvider><App /></AuthContextProvider>
+//<App />
+, document.getElementById('root'));
+```
+
+3. Remove the all the login/logout functionalilty from App.js, use context to access the state object
+
+```
+App.js
+
+import React, {useContext} from 'react';
+
+import Login from './components/Login/Login';
+import Home from './components/Home/Home';
+import MainHeader from './components/MainHeader/MainHeader';
+import AuthContext from './store/auth-context';
+
+
+function App() {
+  console.log('App component');  
+  const ctx = useContext(AuthContext);
+    
+    return (
+      <React.Fragment>
+           <MainHeader onLogout={ctx.onLogout} />
+          <main>
+            {!ctx.isLoggedIn && <Login />}
+            {ctx.isLoggedIn && <Home />}
+          </main>
+        </React.Fragment>
+  );
+}
+
+export default App;
+```
+4. Similarly update the code to all other components
+
+
+###### 12. React context limitations
+
+1. Context can be used application wide state management where props can be used for reusable component
+2. Context is not optimized for high frequency changes
+3. There is an alternative which is Redux
+
+##### 13. Rules of Hooks
+
+###### 1. Only call React Hooks in React Function component(which is return JSX) and custom Hooks
+###### 2. Only call React Hooks at the Top Level(do not call in any conditional statement or loop or any other internal methods)
+###### 3. Rule for useEffect(): Always add everything you refer to inside of useEffect() as a dependency
+
+
+###### 14. Refactoring an input component
+
+1. Create an input component
+
+```
+Input.js
+
+import React from 'react';
+import classes from './Input.module.css';
+
+const Input = (props) => {
+    return (
+        <div
+          className={`${classes.control} ${
+            props.isValid === false ? classes.invalid : ''
+          }`}
+        >
+          <label htmlFor={props.id}>{props.label}</label>
+          <input
+            type={props.type}
+            id={props.id}
+            value={props.value}
+            onChange={props.onChange}
+            onBlur={props.onBlur}
+          />
+        </div>
+    );
+};
+
+export default Input;
+```
+
+2. Reuse in Login.js, we are using props on reusable components, so that we can configure for each compoennt, if we use context then functionality is same and it cannot be changed for individual component needs
+
+```
+<Input 
+            id="email" 
+            label="E-Mail" 
+            type="email" 
+            isValid={emailValid} 
+            value={emailState.value}
+            onChange={emailChangeHandler}
+            onBlur={validateEmailHandler}
+            />
+            <Input 
+            id="password" 
+            label="Password" 
+            type="password" 
+            isValid={passValid} 
+            value={passwordState.value}
+            onChange={passwordChangeHandler}
+            onBlur={validatePasswordHandler}
+            />
+```
+##### 14. Diving into Forward Refs
+
+ - Steps to use Forward Refs
+
+1. Import useRef  
+2. Create a ref attribute on Input element
+3. In order to use this ref from login.js(outside of its component
+4. Import useImperativeHandle and define them inside input component
+        - this will accept 2 args
+            - 1. ref which will be passed from input component args, in order to pass we need to wrap with React.forwardRef
+            - 2. method which can return the object, map the function name which can be called from outide
+
+```
+Input.js
+
+import React, {useRef, useEffect, useImperativeHandle} from 'react';
+import classes from './Input.module.css';
+
+const Input = React.forwardRef((props, ref) => {
+    const inputRef = useRef();
+
+    //useEffect(()=> {inputRef.current.focus();}, []);
+
+    const activate = () => {
+        inputRef.current.focus();
+    };
+
+    useImperativeHandle(ref, () => {
+        return {
+            focus: activate
+        };
+    })
+    return (
+        <div
+          className={`${classes.control} ${
+            props.isValid === false ? classes.invalid : ''
+          }`}
+        >
+          <label htmlFor={props.id}>{props.label}</label>
+          <input
+            ref={inputRef}
+            type={props.type}
+            id={props.id}
+            value={props.value}
+            onChange={props.onChange}
+            onBlur={props.onBlur}
+          />
+        </div>
+    );
+});
+
+export default Input;
+```
+
+5. Import useRef on login.js
+
+```
+import React, { useState, useEffect, useReducer, useContext, useRef } from 'react';
+```
+6. declare useRef for each input element email and password
+
+```
+const emailRef = useRef();
+const passRef = useRef();
+```
+7. On Submit call the ref based upon the condition to focus
+
+```
+const submitHandler = (event) => {
+    event.preventDefault();
+    if(formIsValid){
+      authCtx.onLogin(emailState.value, passwordState.value);
+    }else if(!emailValid){
+        emailRef.current.focus();
+    }else{
+      passRef.current.focus();
+    }
+    
+  };
+```
+8. Here we are using focus method from useRef hook which is exposed to outside component using imperativeHandle and React.forwardRef on Input component
 
 
