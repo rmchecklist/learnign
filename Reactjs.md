@@ -2447,5 +2447,6 @@ const submitHandler = (event) => {
   };
 ```
 8. Here we are using focus method from useRef hook which is exposed to outside component using imperativeHandle and React.forwardRef on Input component
+9. This can usefull for focusing and scrolling and avoid for all other purposes.
 
 
