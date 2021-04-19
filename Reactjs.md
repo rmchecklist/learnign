@@ -2450,3 +2450,13 @@ const submitHandler = (event) => {
 9. This can usefull for focusing and scrolling and avoid for all other purposes.
 
 
+##### Food Order app
+
+1. Download the resources and extrace them
+2. inside the project app run `npm install` and `npm start`
+3. Create some of the folder to organize the component
+            - components --> folders which holds all the components
+            - UI --> All sytle related component can be placed here
+            - Meals --> Meal component have list of meals
+            - Layout --> hold all layout related components
+            - Cart --> Cart related components
