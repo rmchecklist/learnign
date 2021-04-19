@@ -2452,15 +2452,15 @@ const submitHandler = (event) => {
 
 ##### Food Order app
 
-1. Download the resources and extrace them
-2. inside the project app run `npm install` and `npm start`
-3. Create some of the folder to organize the component
+###### 1. Download the resources and extrace them
+###### 2. inside the project app run `npm install` and `npm start`
+###### 3. Create some of the folder to organize the component
             - components --> folders which holds all the components
             - UI --> All sytle related component can be placed here
             - Meals --> Meal component have list of meals
             - Layout --> hold all layout related components
             - Cart --> Cart related components
-4. Working on Header Component
+###### 4. Working on Header Component
 
     - Create Header component under Layout
         - Header.js and Header.module.js
@@ -2491,3 +2491,74 @@ function App() {
 
 export default App;
 ```
+
+###### 5. Adding the "Cart" Button component
+
+1. Create a HeaderCartButton component, try to add image and name and badge
+
+```
+import CartIcon from '../Cart/CartIcon';
+import classes from './HeaderCartButton.module.css';
+
+const HeaderCartButton = props => {
+    return(
+        <button className={classes.button}>
+            <span className={classes.icon}>
+                <CartIcon />
+            </span>
+            <span>
+                Your cart
+            </span>
+            <span className={classes.badge}>
+                3
+            </span>
+        </button>
+    );
+}
+
+export default HeaderCartButton;
+```
+2. Use CartIcon component in HeaderCartButtom component to import image
+    - Create CartIcom component, this will create JSX file which include svg icon
+
+```
+const CartIcon = () => {
+    return (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 20 20'
+        fill='currentColor'
+      >
+        <path d='M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' />
+      </svg>
+    );
+  };
+  
+  export default CartIcon;
+```
+3. Import HeaderCartButton in Header component
+
+```
+import { Fragment } from 'react';
+import mealsImage from '../../asserts/meals.jpg';
+import classes from './Header.module.css';
+import HeaderCartButton from './HeaderCartButton,';
+
+const Header = props => {
+    return (
+        <Fragment>
+            <header className={classes.header}>
+                <h1>ReactMeals</h1>
+                <HeaderCartButton />
+            </header>
+            <div className={classes['main-image']}>
+                <img src={mealsImage} alt="A table of full delicious food" />
+            </div>
+        </Fragment>
+    );
+};
+
+
+export default Header;
+```
+
