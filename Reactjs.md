@@ -2460,3 +2460,34 @@ const submitHandler = (event) => {
             - Meals --> Meal component have list of meals
             - Layout --> hold all layout related components
             - Cart --> Cart related components
+4. Working on Header Component
+
+    - Create Header component under Layout
+        - Header.js and Header.module.js
+    - It can contain Header cart and image
+        - Image can be import from assets folder, syntax of this image import as mentioned below
+```
+import mealsImage from '../../asserts/meals.jpg';
+
+<img src={mealsImage} alt="A table of full delicious food" />
+```     
+    - Import the css class, if there is any '-', then we should use [] to reference
+```
+<div className={classes['main-image']}>
+```
+    - Import the Header component into App
+
+```
+import React, {Fragment} from 'react';
+import Header from './components/Layout/Header';
+
+function App() {
+  return (
+    <Fragment>
+      <Header />
+    </Fragment>
+  );
+}
+
+export default App;
+```
