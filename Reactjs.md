@@ -2562,3 +2562,13 @@ const Header = props => {
 export default Header;
 ```
 
+##### 6. Adding a "Meals" Component
+
+1. Create 3 components 
+    - Meals ==> Combine MealsSummary and AvailableMeals
+    - MealsSummary ==> Have static text 
+    - AvailableMeals ==> List of available meal and transform the test data into jsx
+
+###### 7. Adding Individual Meal Items & Displaying them
+
+###### 8. Adding a Form
