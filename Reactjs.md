@@ -2572,3 +2572,12 @@ export default Header;
 ###### 7. Adding Individual Meal Items & Displaying them
 
 ###### 8. Adding a Form
+
+
+###### Things to remind for building projects
+
+1. useState
+2. useEffect
+3. useContext
+4. useReducer
+
