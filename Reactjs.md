@@ -2574,10 +2574,37 @@ export default Header;
 ###### 8. Adding a Form
 
 
-###### Things to remind for building projects
+# Things to remind for building projects
 
 1. useState
 2. useEffect
 3. useContext
 4. useReducer
+
+
+## A look behind the scenes of React & Optimization techniques
+
+
+##### How does React work?
+
+ ![image](https://user-images.githubusercontent.com/5713791/115616792-9b6c8b00-a2be-11eb-843b-3d68ee4cd343.png)
+
+![image](https://user-images.githubusercontent.com/5713791/115617495-74628900-a2bf-11eb-9e0b-1ee2321e82a8.png)
+
+###### Preventing Unneccessary Re-Evaluations with React.memo()
+
+ - useCallback - wrap handler method to useCallback, this will store function into React storage and reuse for subsequent execution.
+
+- We can use React.memo() to reload the components based upon the props value
+- But if compoonent used event handler then it is reload everytime, in order avoid this we can use useCallback to copy the variable
+
+```
+const toggleParagraphHandler = useCallback(() => {
+    setShowParagraph()
+}, [])
+```
+
+
+
+
 
