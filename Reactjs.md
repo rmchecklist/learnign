@@ -2604,7 +2604,21 @@ const toggleParagraphHandler = useCallback(() => {
 }, [])
 ```
 
+###### useCallback() and its dependencies
+
+```
+const toggleParagraphHandler = useCallback(()=>{
+    if(allowToggle){ ==> This is variable which is used outside of the function
+        setShowParagraph((prevShowPragraph) => ~preShowParagraph);
+    }
+}, [allowToggle]);
+
+```
+- allowToggle state changes, then button will retrigger, if we are not adding dependencies then it never going to be retriggered because functions are constant and values are closure within the function.
 
 
 
+##### State update and scheduling
+
+![image](https://user-images.githubusercontent.com/5713791/115760476-69673180-a36f-11eb-8844-5fce2c0df29c.png)
 
