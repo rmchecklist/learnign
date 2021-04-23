@@ -2622,3 +2622,25 @@ const toggleParagraphHandler = useCallback(()=>{
 
 ![image](https://user-images.githubusercontent.com/5713791/115760476-69673180-a36f-11eb-8844-5fce2c0df29c.png)
 
+useMemo to memorize the data
+
+
+###### An Alternative way of building components: class based components
+
+#### Sending Http request:
+
+
+```
+const response = await fetch('https://swapi.dev/api/films'); --> Call api using fetch(inbuild javascript function) and make them async
+    const data = await response.json(); --> await to return the response in json
+    const tranformedMovies = data.results.map(movieData => {
+          return {
+            id: movieData.episode_id,
+            title: movieData.title,
+            openingText: movieData.opening_crawl,
+            releaseDate: movieData.release_date
+          };
+        });
+        setMovies(tranformedMovies);
+        setLoading(false);
+```
