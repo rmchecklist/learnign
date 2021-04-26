@@ -2644,3 +2644,54 @@ const response = await fetch('https://swapi.dev/api/films'); --> Call api using 
         setMovies(tranformedMovies);
         setLoading(false);
 ```
+
+##### Dealing with form submission and user input values
+
+- useRef, useState
+
+Approch#1: Want to capture and validate on each key stroke then use onChange function and update the state value on every key stroke
+
+
+Approach#2: Want to validate the entered value at the time of submission then use useRef
+
+```
+import { useState, useRef } from 'react';
+
+const SimpleInput = (props) => {
+  const [enteredName, setEneteredName] = useState('');
+  const inputNameRef = useRef();
+
+  const inputChangeHandler = event => {
+    setEneteredName(event.target.value);    
+  }
+
+  const onSubmitHandler = event =>{
+    event.preventDefault();
+    console.log(enteredName);
+    console.log(inputNameRef.current.value);
+  }
+
+  return (
+    <form onSubmit={onSubmitHandler}>
+      <div className='form-control'>
+        <label htmlFor='name'>Your Name</label>
+        <input ref={inputNameRef} type='text' id='name' onChange={inputChangeHandler}/>
+      </div>
+      <div className="form-actions">
+        <button>Submit</button>
+      </div>
+    </form>
+  );
+};
+
+export default SimpleInput;
+
+```
+
+##### Rest the input value
+
+Approach#1: use set state to reset the value - Ideal Approach
+Approach#2: use Ref varialbe to reset the value - This is not the ideal approach to change the dom value, let react take care of it.
+
+- Input validation should on onBlur, OnSubmission and onChange
+- 
