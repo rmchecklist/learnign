@@ -2695,3 +2695,14 @@ Approach#2: use Ref varialbe to reset the value - This is not the ideal approach
 
 - Input validation should on onBlur, OnSubmission and onChange
 - 
+
+##### Third party form lib FORMIK, this can avoid using custom hooks and easy to use complex forms validations.
+
+https://formik.org/
+
+
+##### useState() vs useReducer()
+
+![image](https://user-images.githubusercontent.com/5713791/116470282-34f8e700-a841-11eb-8963-c79cadc51d5c.png)
+
+
