@@ -2718,3 +2718,46 @@ https://formik.org/
 
 
 
+##### Exploring the core Redux
+
+- Create a empty folder
+- run 'npm init -y'
+- install redux 'npm install redux'
+- create demo.js file(redux-demo.js)
+
+
+![image](https://user-images.githubusercontent.com/5713791/117152597-2b630800-ad88-11eb-9c4e-11b5b883b1bc.png)
+1. include redux by using require('redux')
+2. create reducer funcation which can accept current state, and action
+
+```
+const counterReducer = (state = {counter:0}, action) => {
+    return {
+        counter: state.counter +1 
+    }
+};
+```
+3. create redux store which can accept reducer
+
+```
+const store = redux.createStore(counterReducer);
+```
+4. need a subscriber method to access the store
+
+```
+const counterSubscriber = () => {
+    const latestState = store.getState();
+    console.log(latestState);
+}
+```
+5. subscribe the function
+
+```
+store.subscribe(counterSubscriber);
+```
+
+6. dispatch the function
+
+```
+store.dispatch({type:'increment'});
+```
