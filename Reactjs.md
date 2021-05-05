@@ -2706,3 +2706,13 @@ https://formik.org/
 ![image](https://user-images.githubusercontent.com/5713791/116470282-34f8e700-a841-11eb-8963-c79cadc51d5c.png)
 
 
+#### REDUX
+
+- A state management system for cross-component or app-wide state
+
+![image](https://user-images.githubusercontent.com/5713791/117085478-e56e5b80-ad17-11eb-9a21-20bc966f493e.png)
+
+![image](https://user-images.githubusercontent.com/5713791/117085873-02575e80-ad19-11eb-8412-1cf41eb4a6d1.png)
+
+
+
