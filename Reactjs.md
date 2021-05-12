@@ -2897,3 +2897,30 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 ###### Redux dev tools
 
+#### Deploying react apps
+
+
+###### Deploying Steps
+
+- Test code
+- Optimize code(use react memo to avoid unneccsary redering
+- Build App for production
+- Upload production code to server
+- Configure Server
+
+
+##### Lazy loading ==> Load code only when it's needed
+
+#### Building  code for production
+
+- On package.json ==> we have the script ready server start, build, test and eject
+- for building use `npm run-script build`
+
+##### Hosting static website
+
+Follow this link for google firebase
+
+https://console.firebase.google.com/u/0/project/react-app-7828a/hosting/sites
+
+
+
