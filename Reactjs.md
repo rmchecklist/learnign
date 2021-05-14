@@ -2924,3 +2924,23 @@ https://console.firebase.google.com/u/0/project/react-app-7828a/hosting/sites
 
 
 
+##### Firebase authentication
+
+Signup with usename and password: 
+
+https://firebase.google.com/docs/reference/rest/auth#section-create-email-password
+
+```
+Sign up with email / password
+You can create a new email and password user by issuing an HTTP POST request to the Auth signupNewUser endpoint.
+
+Method: POST
+
+Content-Type: application/json
+
+Endpoint
+
+https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
+
+```
+
