@@ -2953,8 +2953,22 @@ https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
 
 #### React teting
 
+
+#### Testing react apps
+
+Writing tests - The three A's
+
+- Arrange - Set up the test data, test conditions and test enviroment  
+- Act - Run logic that should be testsed(e.g. execute function)
+- Assert - Compare execution result with expedcted results.
+
+
+
 - Unit tests - Test the indidivual building blocks (funtions components) in isolation
 - Integration test - Test the combination of the mutiple builing blocks 
 - End2End test(e2e) - Test the comple scenarios in your apps as the user would experience them
 
 Available roles:  https://www.w3.org/TR/html-aria/#docconformance
+
+Jest javascritp testing framework: [https://jestjs.io/]
+
