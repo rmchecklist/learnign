@@ -14,3 +14,12 @@
     - Easily add backend (server-side) code to your Next /React apps
     - Storing data, getting data authentication etc. can be added to your React projects
 
+
+#### Testing react apps
+
+Writing tests - The three A's
+
+- Arrange - Set up the test data, test conditions and test enviroment  
+- Act - Run logic that should be testsed(e.g. execute function)
+- Assert - Compare execution result with expedcted results.
+
