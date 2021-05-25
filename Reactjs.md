@@ -2944,3 +2944,17 @@ https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
 
 ```
 
+##### React animation
+
+- React transition - [https://github.com/reactjs/react-transition-group]
+- react motion - [https://github.com/chenglou/react-motion]
+- react move - [https://react-move.js.org/#/]
+- react router transition - [https://github.com/maisano/react-router-transition]#
+
+#### React teting
+
+- Unit tests - Test the indidivual building blocks (funtions components) in isolation
+- Integration test - Test the combination of the mutiple builing blocks 
+- End2End test(e2e) - Test the comple scenarios in your apps as the user would experience them
+
+Available roles:  https://www.w3.org/TR/html-aria/#docconformance
