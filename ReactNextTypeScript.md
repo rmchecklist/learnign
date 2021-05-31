@@ -36,3 +36,22 @@ npm install --save-dev typescript @types/react @types/node
 yarn add --dev typescript @types/react @types/node
 
 ```
+
+
+5. Install bootstrap
+
+```
+npm install bootstrap@next [https://medium.com/frontendweb/how-to-add-bootstrap-in-next-js-de997371fd9c]
+```
+
+6. Install fontawesome [https://antoncodes.com/article/importing-font-awesome-into-nextjs]
+
+```
+npm install @fortawesome/fontawesome-free
+```
+
+7. Signin form:
+
+```
+https://bootsnipp.com/snippets/vl4R7
+```
