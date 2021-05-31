@@ -55,3 +55,7 @@ npm install @fortawesome/fontawesome-free
 ```
 https://bootsnipp.com/snippets/vl4R7
 ```
+
+8. html form:
+
+https://www.tutorialrepublic.com/snippets/gallery.php?tag=sign-up
