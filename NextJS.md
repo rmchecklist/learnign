@@ -15,3 +15,33 @@
     - Storing data, getting data authentication etc. can be added to your React projects
 
 
+
+###### Page pre-redernding
+
+1. Static site Generation(SSG)
+
+Generate on the build, user can view the data without any redering(useEffect)
+
+```
+export async getStaticProps(){
+  return {
+    props: {
+      meetups: dummy_data
+    },
+    revalidate: 10(in sec)
+  }
+}
+```     
+2. Server side rendering (SSR)
+
+```
+export async getServerSideProps(){
+  return {
+    props: {
+      meetups: DUMMY_DATA
+    }
+  }
+}
+```
+
+
