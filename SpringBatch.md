@@ -16,4 +16,8 @@ Job repository:
 Job ==> Job instance ==> Job Execution
   
   
+###### Data Model
+
+![image](https://user-images.githubusercontent.com/5713791/120704954-38594100-c485-11eb-88f5-c9efa8bdf5c9.png)
+
   
