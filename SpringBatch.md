@@ -153,7 +153,17 @@ stopAndRestart
 ##### Spring batch nested jobs
 
 
+##### Spring Batch listeners
 
+1. JobExecutionListener (Before and After job execution)
+2. StepExecutionListener (Before and After Step execution)
+3. ChunkListener (Before and After chunk execution)
+4. IteamReadListener
+5. ItemProcessListener
+6. ItemWriteListener
+
+
+##### Job Parameters
 
 
 
