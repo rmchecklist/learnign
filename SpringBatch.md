@@ -300,6 +300,32 @@ public interface ItemReader<T> {
 ```
 - An ItemReader provides the data and is expected to be stateful. It is typically called multiple time for each batch. with each call to read() returning the next value and finally returning null when all input data has been exhausted.
 
+- Spring batch provides some out-of-the-box implementations of ItemReader, which can be used for a variety of purposes such as collections, files, integrating JMS and JDBC as well as multiple resources and so on.
+
+## reader() on spring config
+
+```
+@StepScope
+@Bean
+public ItemReader<Customer> reader() {
+    return new CustomerItemReader(XML_FILE);
+}
+```
+
+- @StepScope, letting spring know that this calss is a step scoped spring compinent and will be craeted once per step execution as follows.
 
 
+### Custom processors
 
+- Itemprocessor transform items and introduce business login in an item-oriented processing scenario. They must proivde an impelmentation of the interface org.springframework.batch.item.ItemProcessor
+
+```
+public interface ItemProcessor<I, O> {
+    O process(I item) throws Exception;
+}
+
+```
+
+- The method process() accepts one instance of the I class and may or may not return an instance of the same type. Returning null indicates that the item should not continue to be processed.
+- Spring provides few standard processors, such as CompositeItemProcessor that passes the item through a sequence of injected OtemProcessors and a ValidatingItemProcessor that validates input.
+- 
