@@ -64,3 +64,9 @@ myenv\scripts\activate
 ```
 pip install Django
 ```
+
+5. Create django admin project
+
+```
+django-admin startproject backend
+```
