@@ -83,4 +83,12 @@ python manage.py runserver
 python manage.py startapp base
 ```
 
+under base app:
+
+views.py - view logic
+models.py - model logic
+
+Register our apps 
+
+
 
