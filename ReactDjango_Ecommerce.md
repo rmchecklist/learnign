@@ -38,6 +38,11 @@ imd -> destructuring import
 npm install react-bootstrap
 ```
 
+# Install react router and react router bootstrap
+
+```
+npm install react-router-dom react-router-bootstrap
+```
 
       
 
