@@ -90,5 +90,23 @@ models.py - model logic
 
 Register our apps 
 
+ - add entry into settings.py INSTALLED_APPS
+
+In order to use urls, we need to create a urls.py under base apps
+
+Install django rest framework [https://www.django-rest-framework.org/]
+
+```
+pip install djangorestframework
+```
+Add these imports into views.py to use django rest framework
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+
+
+
+
 
 
