@@ -44,5 +44,23 @@ npm install react-bootstrap
 npm install react-router-dom react-router-bootstrap
 ```
 
+# Serving and fetching data from Django
       
+1. Create a vitural env
+```
+virtualenv myenv [On Command prompt]
+```
 
+2. Activate myenv
+
+```
+myenv\scripts\activate
+```
+
+3.Find all installed lib under myenv -> pip list
+
+4. Install Django
+
+```
+pip install Django
+```
