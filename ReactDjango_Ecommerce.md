@@ -105,6 +105,22 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
+# Install axios on React app
+
+```
+npm install axios
+```
+
+# Install django cors to avoid error when accessing api [https://pypi.org/project/django-cors-headers/]
+
+
+# React frontend 
+
+ - Add proxy on packages.json
+
+```
+"proxy": "http://localhost:8000",
+```
 
 
 
