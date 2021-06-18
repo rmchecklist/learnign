@@ -70,3 +70,17 @@ pip install Django
 ```
 django-admin startproject backend
 ```
+
+6. Start server
+
+```
+python manage.py runserver
+```
+
+7. Create App
+
+```
+python manage.py startapp base
+```
+
+
