@@ -122,7 +122,20 @@ npm install axios
 "proxy": "http://localhost:8000",
 ```
 
+Database model design [drawsql.app]
+
+python apply migration/all pending changes
+
+```
+python manage.py migrate
+
+```
+
+create admin user
+
+```
+python manage.py createsuperuser
 
 
-
+```
 
