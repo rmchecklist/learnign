@@ -160,5 +160,10 @@ admin.site.register(Product)
 ![image](https://user-images.githubusercontent.com/5713791/122660073-24cbfc80-d14c-11eb-9abb-6172f964a659.png)
 
 
+Using ImageField, we need to install pillow
+
+```
+pip install pillow
+```
 
 
