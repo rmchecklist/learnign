@@ -139,3 +139,21 @@ python manage.py createsuperuser
 
 ```
 
+Add models and make migrations (to create a script under migrations folder), in order to migrate this changes to DB then we should run migrate command
+
+```
+python manage.py makemigrations
+
+python manage.py migrate
+```
+
+In order to view these changes in admin panel, then we should register them in admin.py
+
+```
+from .models import Product
+
+admin.site.register(Product)
+```
+
+
+
