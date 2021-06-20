@@ -155,5 +155,10 @@ from .models import Product
 admin.site.register(Product)
 ```
 
+# DB model
+
+![image](https://user-images.githubusercontent.com/5713791/122660073-24cbfc80-d14c-11eb-9abb-6172f964a659.png)
+
+
 
 
