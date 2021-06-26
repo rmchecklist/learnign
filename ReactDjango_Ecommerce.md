@@ -169,6 +169,25 @@ pip install pillow
 # React redux:
 
 1. Create store 
-       - Create store, it requires reducer
+       - Create store, it requires 
+                - reducer
+                - initial state
+                - composeWithDevTools(applyMiddleware(...middleware))
 
+```
+
+import { createStore, combineReducers, applyMiddleware } from 'redux' 
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+
+
+- reducer
+const reducer = combineReducer({
+    listof reducers
+})
+- initialState
+const initialState = []
+-middleware
+const middleware = [thunk]
+```
 
