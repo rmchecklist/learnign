@@ -166,4 +166,9 @@ Using ImageField, we need to install pillow
 pip install pillow
 ```
 
+# React redux:
+
+1. Create store 
+       - Create store, it requires reducer
+
 
