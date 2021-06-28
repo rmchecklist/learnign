@@ -191,3 +191,20 @@ const initialState = []
 const middleware = [thunk]
 ```
 
+
+# Use the store in index.js(root component)
+
+```
+import {Provider} from 'react-redux';
+<Provider store={store}>
+</Provider>
+```
+
+# Create actions:
+
+create actions and dispatch to reducers
+
+
+
+
+
