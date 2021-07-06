@@ -49,3 +49,45 @@ Assigning a value though sping xml
 <bean name="alien" class"Alien" type="prototype"></bean>
 ```
 
+Adding object referece to class
+
+```
+<bean id="alien" class="Alien">
+  <property name="age" ref="laptop"></property>
+</bean>
+<bean id="laptop" class="Laptop">
+</bean>
+```
+
+Passing constructor argument
+
+```
+<bean id="alien" class="Alien">
+  <constructor-arg value="12" ></constructor-arg>
+  <constructor-arg ref="laptop" ></constructor-arg>
+</bean>
+<bean id="laptop" class="Laptop">
+</bean>
+
+```
+
+Autowire:
+
+byName or byType
+
+```
+<bean id="alien" class="Alien" autowire="byType">
+</bean>
+<bean id="laptop" class="Laptop">
+</bean>
+```
+
+If there is mutiple reference object, we can set attribute primary to look for primary object
+
+```
+<bean id="alien" class="Alien" autowire="byType">
+</bean>
+<bean id="laptop" class="Laptop" primary>
+</bean>
+```
+```
