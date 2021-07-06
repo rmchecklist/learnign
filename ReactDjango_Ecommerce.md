@@ -205,6 +205,11 @@ import {Provider} from 'react-redux';
 create actions and dispatch to reducers
 
 
+# Install djangorestframework jwt(Json Web token)
 
+[https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html#installation]
+```
+pip install djangorestframework-simplejwt
+```
 
 
