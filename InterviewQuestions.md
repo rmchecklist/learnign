@@ -139,6 +139,13 @@
         - Primitive variable - stack
         - local method varibles in the heap
         
-    
+26. What is the difference between process and threads? 
+        - Process - It is an execution of a program
+        - Thread - It is a single execution sequence witin the process.           
 
-  
+27. What are the Thread states?
+        - Runnable
+        - Running - yield
+        - Sleep - Runnable
+        - wait --> notify & notifyAll
+        - yield --Runnable
