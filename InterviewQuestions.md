@@ -100,9 +100,45 @@
             
             Overriding: deals with two methods, one in the parent class and the other one in the child class and has the same name and signatures.
           
-      
+    16. equals() and hashcode() 
+        - If a class overrides equals(), it must override hascode()
+        - If 2 objects equal, then theri hasCOde values must be equal as well 
+        - If a field is not used in equals(), then it must not be used in hashCode().
+        - if it is accessed often, hashCode() is a  candidate for caching to enhance performance.
           
-   
+   17. Enum constants 
+            Which provides readability and maintainability of your code.
+    
+  18. Main difference between a String and StringBuffer class?
+        - String is immutable - Can't modify a string object but can replace it by creating a new instance and it is expensive.
+        - StringBuffer - It is mutable and not synchronized
+        - StingBuilder - mutable and sychronized
+        - toString(), concat(), trim(), subString() and replace() creates new string instances
+
+  19. What is the difference between pass by value and pass by reference?
+        - Java always get a copy of that data which is exactly how pass by value works
+
+  20. What is serialization?
+        - Searialization is process of reading and writing an object.
+        - Transient variable cannot be serialized
+
+  21. Deep and shallow copy?
+  22. Static and instance variable?
+        - Class variables are called static. There is only one occurance of the class variable per JVM per class loader.
+        - Instance variables are non-static and there ios one occirnce of tan instance variable in each class instance.
+  23. What are acces modifiers?
+        public , protected, private , no modifer
+        
+ 24. What are the java modifiers?
+        - static
+        - abstract - cannot be instantiated, must be a superclass
+        - synchronized 
+        - trainient - Fields should not be serialized
+        - final - class can't inherited, method can't be overriden, mark variable constant
+  25. How does java allocate stack and heap memory?
+        - Primitive variable - stack
+        - local method varibles in the heap
+        
     
 
   
