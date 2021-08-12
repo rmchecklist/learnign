@@ -80,7 +80,26 @@
       Encapsulation: 
       
   13. What is the difference between an abstract class and an interface?
+        - Abstract class: 
+            - You want the base class to present only an interface for its derived classes.
+            - You don't want anyone to actually instatiate an object of the base class.
+          
+         - Interface: 
+            - Preventing any method implementation.
 
+
+    14. Why there are some interfaces with no defined methods? or Marker interface?
+            The interfaces with no defined methods act like markers. They just tell the complier that the object of the classes implementing the interfaces with no defined methods need to be treated differently.
+            
+            e.g. Serializable, Clonable
+            
+            
+    15. Overloading vs Overriding
+    
+            Overloading: deals with mutiple methods with same name but different signatures
+            
+            Overriding: deals with two methods, one in the parent class and the other one in the child class and has the same name and signatures.
+          
       
           
    
