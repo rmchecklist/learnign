@@ -50,3 +50,42 @@
 9. rmdir dir_name - remove directory
 
 # Creating a Git repository
+
+- mkdir MyGitRepo
+- git init -> initialize the git repo
+- view all files under repo
+-  ls -a -> view all hidden files
+
+# Adding files
+- touch indedx.html style.css -> creating new files
+
+# Git status
+
+- git status -> track all files under working directory
+
+# Tracking files
+ - branch -> independent source of code 
+ - track/staging file
+      git add file_name
+      
+  - untrack/unstage a file
+      git rm --cached file_name
+  - Commit all files
+     git add .
+# Committing files
+
+- git commit -m 'add skeleton files for webpage' -> -m refers adding message
+
+# Viewing history
+- git log
+
+# Introduction to branch
+- git branch
+- creating a new branch
+    git branch user-authentication
+- Switch/Checkout branch
+    git checkout user-authentication
+    
+# Staging and Tracking
+untracked file - Files are in local not added to repo
+unstaged - files are committed, and modified and untracked
