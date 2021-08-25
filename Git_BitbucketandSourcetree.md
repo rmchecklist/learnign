@@ -105,5 +105,15 @@
 
 # Merge
 
+1. Checkout the master branch -> git checkout master
+2. merge the file from user-authentication to master -> git merge user-authentication
+3. Hisotry of the commit -> git log
 
+# Adding a Tag
+annotate the tag and adding a message
+- git tag -a v1.0.0 -m 'Version 1.0.0 release'
+- Find all tag -> git tag
 
+# Git commands
+
+[https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html]
