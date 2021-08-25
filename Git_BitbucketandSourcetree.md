@@ -87,5 +87,23 @@
     git checkout user-authentication
     
 # Staging and Tracking
-untracked file - Files are in local not added to repo
-unstaged - files are committed, and modified and untracked
+ - untracked file - Files are in local not added to repo
+ - unstaged - files are committed, and modified and untracked
+
+# Viewing file difference
+
+ - Find the specific file difference -> git diff file_name
+ - Find all file differnece -> git diff
+
+ - clear the console -> clear
+
+# Ignoring files
+- create .gitignore file and add the files to ignore(you can use *.log, this will ignore all log files)
+
+# Committing our work
+ - git commit -m 'add .gitignore'
+
+# Merge
+
+
+
