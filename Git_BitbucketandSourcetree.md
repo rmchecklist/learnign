@@ -117,3 +117,27 @@ annotate the tag and adding a message
 # Git commands
 
 [https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html]
+
+# Bitbucket
+
+- Remote repository
+  It's a central repository and globally available to access, you can push and pull the data.
+- Pull
+  Pull data from remote repo
+- Push 
+  Push the local changes to remote repo
+  
+  # Creating Remote repository
+  
+  1. Login to [https://bitbucket.org/]
+  2. Create a account as per the instructions
+  3. Create a repository
+  
+  # Bitbucket interface
+  
+  pull request => Request a change before integrating a official project
+  pipeline
+  Boards
+  
+  # Cloning: HTTPS vs SSH
+  
