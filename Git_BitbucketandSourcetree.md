@@ -141,3 +141,37 @@ annotate the tag and adding a message
   
   # Cloning: HTTPS vs SSH
   
+  - HTTPS -> always going to verify using cert auth, when you push the changes system prompt you to enter credentials
+  - SSH => use public key authentication, public key for bitbucket, private key will locally, more secure
+  
+  # Clone HelloBitbucket
+  
+  - copy the url from bitbucket account(clone repo "git clone https://rengithmanickam@bitbucket.org/rengithmanickam/rengithrepo.git")
+  - Open git command line and paste under you target dir
+
+# Creating and committing files
+
+- Create a file under bitbucket cloned dir 
+    Step1:
+        create file -> touch helloworld.txt
+        create and open the file at one shot -> vim helloworld.txt(create new when you save or else won't be created)
+        Add text and save them by ESC wq command
+    
+    Step2:
+        check status of untracked files by git status
+    
+    Step3: 
+      Add all files by git add .
+      Check the status by git status , Files are staged and ready to committed
+      
+    Step4: 
+      Commit the files by git commit -m 'commit message'
+      Check the status, You will be receive the mesage 'Your branch is based on 'orgin/master' but the upstream is gone' because we cloned empty repo
+      
+ # Pushing changes
+     - git push origin master -> we are pushing local changes to repo master branch repo, after this command all changes will be available in the remote repo/orgin
+     
+      
+      
+    
+    
