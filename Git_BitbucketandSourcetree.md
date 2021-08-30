@@ -171,7 +171,30 @@ annotate the tag and adding a message
  # Pushing changes
      - git push origin master -> we are pushing local changes to repo master branch repo, after this command all changes will be available in the remote repo/orgin
      
-      
-      
-    
+ # Pulling changes
+ 
+ - git pull -> fetch all changes from remote repo and merge the changes. it's a combination of 2 commands
+    - git fetch and git merge
+  
+# Setting up and SSH key
+
+- ssh-keygen --> generate ssh key
+      Simply enter when prompt to enter the file and password
+      key will be generated under ~/.ssh(~ -> home dir)
+      view the key ==> ls ~/.ssh
+
+Add public key to bitbucket
+  Click on the avator(bottom left), settings ==> Security==> SSH-keys ==> Add key
+  
+  copy the key using following commands
+  MAC OS ==> pbcopy < ~/.ssh/id_rsa.pub
+  Linux ==> cat < ~/.ssh/id_rsa.pub
+  Windows ==> clip < ~/.ssh/id_rsa.pub
+  
+  
+  Paste key, Set label name as Default key or something else and Click on Add key
+  
+  Add key to local through command line
+  
+    ssh -T git@bitbucket.org
     
