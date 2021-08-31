@@ -1,6 +1,6 @@
 # What is Git?
   - Distributed controlled system
-# Git glossary
+### Git glossary
 
 - Git
       - Open source version control system, it takes screenshot when you save the file
@@ -22,11 +22,11 @@
     - Navigate the branch 
 
 
-# Install Git
+### Install Git
 
 - download the file from [https://git-scm.com/download] 
 
-# Commands
+### Commands
  - **pwd** -> Print working directory
 
  - Set user name gloablly -> **git config --global user.name 'rengith manickam'**
@@ -49,21 +49,21 @@
 8. cd .. - go to previous directory
 9. rmdir dir_name - remove directory
 
-# Creating a Git repository
+### Creating a Git repository
 
 - mkdir MyGitRepo
 - git init -> initialize the git repo
 - view all files under repo
 -  ls -a -> view all hidden files
 
-# Adding files
+### Adding files
 - touch indedx.html style.css -> creating new files
 
-# Git status
+### Git status
 
 - git status -> track all files under working directory
 
-# Tracking files
+### Tracking files
  - branch -> independent source of code 
  - track/staging file
       git add file_name
@@ -72,11 +72,11 @@
       git rm --cached file_name
   - Commit all files
      git add .
-# Committing files
+### Committing files
 
 - git commit -m 'add skeleton files for webpage' -> -m refers adding message
 
-# Viewing history
+### Viewing history
 - git log
 
 # Introduction to branch
