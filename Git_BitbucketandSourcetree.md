@@ -198,3 +198,32 @@ Add public key to bitbucket
   
     ssh -T git@bitbucket.org
     
+    
+ # Sourcetree
+ 
+ # What is sourcetree?
+  - GUI for git
+  - DVCS(Distributed version control system) friendly
+  
+# Install source tree
+  
+  - download the installation file from [https://sourcetreeapp.com/]
+# The sourcetree interface
+ - Local/Remote tab to select the repo
+ - On remote, hit the refresh the button to pull the information from remote
+ - There are other button, clone, Add and Create
+
+# The sourcetree interface: Toolbar, sidebar, and more
+
+  - Sidebar
+      Branches
+      History -> view hitory of the file, code differences
+  - Searching for commits
+      Search by commit message to identify the files or you can find by date search
+      
+ # Get branching model
+ 
+ ![image](https://user-images.githubusercontent.com/5713791/131427287-0e9ef76c-9b68-4228-b919-5e9c8542608e.png)
+ 
+ # Getting started with MyGitRepo
+ 
