@@ -227,3 +227,27 @@ Add public key to bitbucket
  
  # Getting started with MyGitRepo
  
+# Setting up branches
+     - Click on left nav bar 'BRANCHES' and identify the what are available branches available, we can create new branch by click on Branch from top menu
+     - Switching branches, click on the branch and checkout 
+     
+# Creating new files
+      - Adding files to local repository, and come back to sourcetree, there will be notification about untracked files
+      - Stage these files by clicking on the checkbox from respective file and click "stage hunk"
+      - Commit the files by click the commit icon on the toolbar(Page will prompt you commit message and then click commit)
+ 
+ # Editing existing files
+   - Update the file 
+   - Click uncommitted changes on Sourcetree(- remove + add)
+
+# Merging 
+   - Merge conflict can happen when more than one resource working on the same file
+
+# Adding a Tag  
+
+
+# KDiff3
+
+![image](https://user-images.githubusercontent.com/5713791/131572189-0ab5f4eb-c797-4627-9f15-30985fe9d698.png)
+
+      
