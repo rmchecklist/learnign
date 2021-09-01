@@ -250,4 +250,6 @@ Add public key to bitbucket
 
 ![image](https://user-images.githubusercontent.com/5713791/131572189-0ab5f4eb-c797-4627-9f15-30985fe9d698.png)
 
-      
+#### Advanced Git tutorials:
+
+[https://www.atlassian.com/git/tutorials/advanced-overview]
