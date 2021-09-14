@@ -62,3 +62,12 @@ if (err) throw err;
 ```
 
 Course material course video - [https://github.com/andrewjmead/node-course-v3-code]
+
+
+##### import your files
+
+- use require to load the external js file
+
+```
+require('./util.js')
+```
