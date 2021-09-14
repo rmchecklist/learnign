@@ -138,5 +138,29 @@ use as class
           
           Selecting by id is not supported by angular
           
+
+##### Databinding
           
-     
+          1. String interpolation ( {{}} )
+          
+                    You use method which returns string or regular String variable or String value
+ ```                        e.g 
+                              String value ==> {{'Status'}}
+                              String variable ==> {{ status}}
+                              method ==> {{getStatus()}}
+   ```       
+ 2. Property binding:
+    
+```
+          allowServerAccess = false;
+          
+          constructor(){
+               setTimeOut(()=> {
+               this.allowServerAccess = true;
+          },2000)
+                
+          
+          On Html 
+          
+          <button class="btn btn-primary" [disabled]="!allowNewServer"></button>
+  ```   
