@@ -107,4 +107,36 @@ Add the component tag in app.component.html to use them.
 ```
 ng generate component servers or ng g c server
 ```
-   
+html code can written inside the app.component.ts file
+
+```
+@NgModule({
+     selector: 'app-servers',
+     template: `<app-server><app-server>`, => multiline use backtik(`)
+     
+})
+```
+
+#### Using styling component
+
+@Component({
+     styingURL: ['./app.component.css'] => styling from external file
+     stying: [`
+          h3: {
+          color: darkblue`}
+          ] => inline styling
+})
+
+
+selector can be use as attribute selector by using square brackets [] => selector: [app-server]
+
+<div app-server>
+     
+use as class 
+     selector: '.app-server'
+     <div class='app-server'>
+          
+          Selecting by id is not supported by angular
+          
+          
+     
