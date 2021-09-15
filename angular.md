@@ -149,7 +149,7 @@ use as class
                               String variable ==> {{ status}}
                               method ==> {{getStatus()}}
    ```       
- 2. Property binding:
+ 2. Property binding([] = ""):
     
 ```
           allowServerAccess = false;
@@ -164,3 +164,47 @@ use as class
           
           <button class="btn btn-primary" [disabled]="!allowNewServer"></button>
   ```   
+
+3. Event binding( (event) ):
+          <button (click)="onCreateServer()"}>Add Server</button>
+          
+          onCreateServer() will be declared in component.ts file
+          
+4. Two way binding(FormModule is required for 2 way binding)
+          For 2 way binding, we need to import FormModule in app.module.ts and add the them to imports []
+          
+```
+          app.module.ts
+          
+          import { FormsModule } from '@angular/forms';
+          
+          imports: [
+             FormsModule
+            ],
+          <input [(ngModel)] = "serverCreated" />
+```
+#### Directives
+          *ngIf -> Strutural directives, display the content conditionally, otheres are attribute directives
+          ```
+          <p *ngIf="buttonClicked">{{serverCreated}}</p>
+          ```
+          
+          *ngif else:
+          
+          <p *ngIf="buttonClicked else noServer">{{serverCreated}}</p>
+          <ng-template #noServer>
+              <p >No Server was created</p>
+          </ng-template>
+          
+#### Structural vs Attribute directives
+          Unlike structural directives, attribute directives don't add or remove elements. They only change the elements they were places on.
+          
+          
+ngStyle is an attribute directive 
+          ```
+         <p *ngIf="buttonClicked else noServer" [ngStyle] = "{backgroundColor: getServerStatus()}">{{serverCreated}}</p> 
+          ```
+ngClass
+       Add classes based upon the condition   
+          <p [ngClass] ="{online:serverCreated}">This is ngClass demo</p> 
+          
