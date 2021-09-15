@@ -208,3 +208,33 @@ ngClass
        Add classes based upon the condition   
           <p [ngClass] ="{online:serverCreated}">This is ngClass demo</p> 
           
+
+*ngFor
+          ```
+          <p *ngFor="let logItem of log; let i = index" [ngStyle]="{backgroundColor: i > 4 ? 'blue' : 'green'}" >{{logItem}}</p>
+          ```
+        
+Creating a component without test file
+          ```
+          ng g c comp_name --skipTests true
+          ```
+          
+#### Custom binding or passing value from parent to children
+```
+ app.component.ts
+          
+          serverElements = [{name:'server', type: 'Test Server', content: 'Just a test'}];
+app.component.html
+          <app-first-comp *ngFor="let element of serverElements" [element]="element"></app-first-comp>
+
+first.component.ts
+          import { Component, Input, OnInit } from '@angular/core';
+          declare inside the class:
+          @Input() element!: { name: string; type: string; content: string; };
+first.component.html
+          <p>first-comp works!</p>
+          <p>{{element.name}}</p>
+          <p>{{element.type}}</p>
+          <p>{{element.content}}</p>
+```
+          
