@@ -216,7 +216,7 @@ ngClass
         
 Creating a component without test file
           ```
-          ng g c comp_name --skipTests true
+          ng g c comp_name --skip-Tests true
           ```
           
 #### Custom binding or passing value from parent to children
@@ -236,5 +236,44 @@ first.component.html
           <p>{{element.name}}</p>
           <p>{{element.type}}</p>
           <p>{{element.content}}</p>
+```
+If you want to use alias on the external variable, need to declare @Input('alias_name')and need to use alias name to bind the object, in this scenario original object variable  will not work.       
+          
+          
+##### Custom binding receiving value from children to parent
+  
+```
+          app.component.ts --> Reading count from child component
+          
+          onServerAdded(serverCount: {count: number}){
+              console.log(serverCount.count);
+            }
+          
+          app.component.html => serverCreated will be referenced in child component and onServerAdded will be defined in app.component.html
+          
+          <app-server-element (serverCreated)="onServerAdded($event)"></app-server-element>
+          
+          server.component.ts
+          
+          export class ServerElementComponent implements OnInit {
+            names: number[] = [];
+            @Output() serverCreated = new EventEmitter<{count : number}>();
+            constructor() { }
+
+            ngOnInit(): void {
+            }
+
+            onClickHandler(){
+              this.names.push(this.names.length+1);
+              this.serverCreated.emit({count: this.names.length});
+            }
+
+          }
+          
+          server-element.component.html
+          
+          <button (click)="onClickHandler()">Add Server</button>
+          
+          
 ```
           
