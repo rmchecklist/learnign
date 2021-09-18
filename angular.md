@@ -239,6 +239,7 @@ first.component.html
 ```
 If you want to use alias on the external variable, need to declare @Input('alias_name')and need to use alias name to bind the object, in this scenario original object variable  will not work.       
           
+# Component communication
           
 ##### Custom binding receiving value from children to parent
   
@@ -276,4 +277,22 @@ If you want to use alias on the external variable, need to declare @Input('alias
           
           
 ```
+ #### Local References
+```
+         any.component.html
+          
+          <input type="text" #serverName value="text" />
+          <button (click)="onClickHandler(serverName)">Add Server</button>
+          
+          any.component.ts
+          
+          onClickHandler(serverName : any){
+              console.log(serverName);
+              this.names.push(this.names.length+1);
+              this.serverCreated.emit({count: this.names.length});
+            }
+```
+          
+          
+          
           
