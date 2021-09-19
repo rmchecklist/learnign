@@ -239,7 +239,7 @@ first.component.html
 ```
 If you want to use alias on the external variable, need to declare @Input('alias_name')and need to use alias name to bind the object, in this scenario original object variable  will not work.       
           
-# Component communication
+#### Component communication
           
 ##### Custom binding receiving value from children to parent
   
@@ -332,4 +332,6 @@ ng-content ==> Replace any content insider the component
 #### Component lifecyle
                
    ![image](https://user-images.githubusercontent.com/5713791/133895721-96fb11a4-8b2d-49ee-aa1e-0ad5c9eae6b5.png)
-            
+
+               
+
