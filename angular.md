@@ -293,6 +293,43 @@ If you want to use alias on the external variable, need to declare @Input('alias
             }
 ```
           
+#### Getting access to the template & DOM with @ViewChild
           
+          ```
+   server.component.html     
+
+          <input type="text" #serverNameViewChild value="text" />
           
+     server.component.ts
+          import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+
+          @ViewChild('serverNameViewChild' , {static:true}) serverNameViewChild : any;
           
+          onClickHandler(serverName : any){
+              console.log(this.serverNameViewChild);
+            }
+          
+          Read direct value from @ViewChild
+          
+          @ViewChild('serverNameViewChild', { static: true })
+          serverNameViewChild!: ElementRef;
+          
+          console.log(this.serverNameViewChild.nativeElement.value);
+          ```
+ng-content ==> Replace any content insider the component 
+          
+         ```
+          .html
+          <ng-content></ng-content>
+          
+          from parent html:
+          
+          <app-server-element>
+              Hello How are you? ==> This content appened on the <ng-content> area
+          </app-server-element>
+          ```
+               
+#### Component lifecyle
+               
+   ![image](https://user-images.githubusercontent.com/5713791/133895721-96fb11a4-8b2d-49ee-aa1e-0ad5c9eae6b5.png)
+            
