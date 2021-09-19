@@ -334,13 +334,13 @@ ng-content ==> Replace any content insider the component
    ![image](https://user-images.githubusercontent.com/5713791/133895721-96fb11a4-8b2d-49ee-aa1e-0ad5c9eae6b5.png)
 
      
-constructor : Wil be called at the time of compoent creation
-ngOnInit() - Called once the component is initialized
-ngOnChanges - called when property changed from parent component
-ngDoCheck - Check/detected any changes
-ngAfterContentInit() - Called one afer the content initialized
-ngAfterContentChecked() - called after ngAfterContentInit and every subsequent changes
-ngAfterViewInit() - Called once after the first ngAfterContentChecked().
-ngAfterViewChecked() - Called after the ngAfterViewInit() and every subsequent ngAfterContentChecked().
-ngOnDestroy() - Called immediately before Angular destroys the directive or component.
+- constructor : Wil be called at the time of compoent creation
+- ngOnInit() - Called once the component is initialized
+- ngOnChanges - called when property changed from parent component
+- ngDoCheck - Check/detected any changes
+- ngAfterContentInit() - Called one afer the content initialized
+- ngAfterContentChecked() - called after ngAfterContentInit and every subsequent changes
+- ngAfterViewInit() - Called once after the first ngAfterContentChecked().
+- ngAfterViewChecked() - Called after the ngAfterViewInit() and every subsequent ngAfterContentChecked().
+- ngOnDestroy() - Called immediately before Angular destroys the directive or component.
 
