@@ -369,7 +369,7 @@ export class BasicHighlighterDirective implements OnInit {
 }
 ```
                
-2. Use this directive on the app component
+2. Use this directive on the app component (basic directive)
                
 ```
 app.module.ts add directive into it
@@ -403,4 +403,28 @@ export class AppModule { }
 app.component.html
                
 <p appBasicHighlight>Hello This is the first directive</p>
+```
+
+##### Better directive 
+```        
+betterdirective.directive.ts
+               
+import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appBetterhighlighter]'
+})
+export class BetterhighlighterDirective implements OnInit {
+
+  constructor(private eleRef:ElementRef, private renderer : Renderer2) { }
+
+  ngOnInit(){
+    this.renderer.setStyle(this.eleRef.nativeElement, 'backgroundColor', 'blue')
+  }
+}
+               
+app.component.html
+               
+<p appBetterhighlighter>Hello This is the first directive</p>
+               
 ```
