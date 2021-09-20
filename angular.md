@@ -344,3 +344,63 @@ ng-content ==> Replace any content insider the component
 - ngAfterViewChecked() - Called after the ngAfterViewInit() and every subsequent ngAfterContentChecked().
 - ngOnDestroy() - Called immediately before Angular destroys the directive or component.
 
+
+               
+#### Deep dive Directives
+
+##### Creating our own directive
+               
+1. Create directive ts file
+```
+import { Directive, ElementRef, OnInit } from "@angular/core";
+
+@Directive({
+    selector: '[appBasicHighlight]'
+})
+export class BasicHighlighterDirective implements OnInit {
+
+    constructor(private elementRef:ElementRef){
+
+    }
+
+    ngOnInit(){
+        this.elementRef.nativeElement.style.backgroundColor = 'green'
+    }
+}
+```
+               
+2. Use this directive on the app component
+               
+```
+app.module.ts add directive into it
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { FirstCompComponent } from './first-comp/first-comp.component';
+import { ServerElementComponent } from './server-element/server-element.component';
+import { ComplifecyleComponent } from './complifecyle/complifecyle.component';
+import { BasicHighlighterDirective } from './basic-highlighter/basic-highlighter-directive';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FirstCompComponent,
+    ServerElementComponent,
+    ComplifecyleComponent,
+    BasicHighlighterDirective,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+               
+               
+app.component.html
+               
+<p appBasicHighlight>Hello This is the first directive</p>
+```
