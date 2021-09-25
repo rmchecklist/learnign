@@ -71,3 +71,19 @@ Course material course video - [https://github.com/andrewjmead/node-course-v3-co
 ```
 require('./util.js')
 ```
+
+##### Install npm package 
+
+```
+npm install [package name] or npm i [package name] - package name can be found in npmjs.com
+
+no es6 
+
+const validator = require('validator')
+
+es6
+
+import validator from 'Validator'
+
+const validator = validator.isEmail('test@email.com')
+```
