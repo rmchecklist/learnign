@@ -32,7 +32,6 @@ V8 javascript engine is written in C++
  
 ![image](https://user-images.githubusercontent.com/5713791/132384850-a5481605-3926-4d00-8af9-9bfa51ec8f72.png)
 
-
 - Nodejs uses an event-driven, non-blocking I/O model that makes it light weight and efficient
 - search npm package on [nodejs.com]
 
@@ -86,4 +85,30 @@ es6
 import validator from 'Validator'
 
 const validator = validator.isEmail('test@email.com')
+```
+
+
+#### Install nodemon
+
+```
+npm install nodemon -g (-g install globally not specific to applicaiton), this helps to execute automatically for any changes.
+
+nodemon [file_name]
+```
+
+##### Read argument from command line
+```
+process.argv --> Read the argument from command line argv - argument vector
+```
+
+#### intall yargs
+
+Yargs helps you build interactive command line tools, by parsing arguments and generating an elegant user interface
+
+#### Json parsing and stringify
+
+```
+JSON.stringify(JSON object) ==> Parse JSON object into string
+JSON.parse(string) ==> Parse String into JSON object
+
 ```
