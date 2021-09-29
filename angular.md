@@ -428,3 +428,40 @@ app.component.html
 <p appBetterhighlighter>Hello This is the first directive</p>
                
 ```
+               
+##### Hostlistener
+               
+```
+               @Hostlistener('mouseenter') mouseover(evenData:Event){
+                    this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue', false, false);
+               }
+```
+#### HostBinding
+
+```
+               import { Directive, ElementRef, HostBinding, HostListener, OnInit } from "@angular/core";
+
+@Directive({
+    selector: '[appBasicHighlight]'
+})
+export class BasicHighlighterDirective implements OnInit {
+
+    // constructor(private elRef: ElementRef, private renderer:RendererV2){
+
+    // }
+
+    ngOnInit(){
+        console.log('ngOnInit')
+    }
+
+    @HostBinding('style.background')  backgroundColor: string = 'transparent';
+
+    @HostListener('mouseenter') mouseenter(EventData: Event){
+        this.backgroundColor = 'blue';
+    }
+
+    @HostListener('mouseleave') mouseleave(EventData: Event){
+        this.backgroundColor = 'transparent';
+    }
+}
+```
