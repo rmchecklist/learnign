@@ -465,3 +465,47 @@ export class BasicHighlighterDirective implements OnInit {
     }
 }
 ```
+               
+#### Angular form:
+```             
+<form>
+    <label for="firstName">
+        First Name
+    </label>
+    <input ngModel name="firstName" id="firstName" type="text" #firstName="ngModel" (change)="log(firstName)"/>
+</form>
+```
+In the above code snippet we are controlling the input field using template driven forms, which means angular will create a form control for us, maintaing all the values.
+               
+Some of the key attributes are
+         1. valid/invalid
+         2. dirty/pristine
+         3. error
+         4. touched/untouched
+         5. value
+         6. enabled/disabled
+               
+ Thumb rule to create template driven forms
+1. Must use ngModel along with name attribute
+2. template variable to access ngModel
+               
+               
+ngForm - can be controlled the entire form and also have individual values inside form element
+             ```  
+               <form #f="ngForm" (ngSubmit)="submit(f)">
+                    <input ngModel name="firstName" #firstName="ngModel" type="text" />
+               </form>
+               ```
+ngGroup - Can have mutiple group of elements and seperated by ngGroup
+               
+               ```  
+               <form #f="ngForm" (ngSubmit)="submit(f)">
+                   <div ngModelGroup="contact">
+                         <input ngModel name="firstName" #firstName="ngModel" type="text" />
+                    </div>
+                    <input ngModel name="lastName" #lastName="ngModel" type="text" />
+               </form>
+               ```
+               
+               
+               
