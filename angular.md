@@ -516,8 +516,122 @@ ngGroup - Can have mutiple group of elements and seperated by ngGroup
 - Form validation can done through template variable.
  <input ngModel #name="ngModel" name="firstName" type="text"> -> templage varialbe name will have all the validation attributes which is inherited from ngModel.
                                                             
-                                                            
+```
+<form #f="ngForm">
+    <div>
+        <label for="courseName">Course Name</label>
+        <input required minlength="3" ngModel #courseName="ngModel" type="text" name="courseName" (change)="log(courseName)">
+    </div>
+    
+    <div *ngIf="courseName.touched && courseName.invalid">
+        <div *ngIf="courseName.invalid">
+            Name is required.
+        </div>
+        
+        <div *ngIf="courseName.errors.minlength != courseName.errors.minlength.requiredLength">
+            Name should be min {{courseName.errors.minlength.requiredLength}} characters.
+        </div> 
+    </div>
+    
+
+    <div>
+        <label for="category">Category</label>
+        <select ngModel #category = "ngModel" name="cars" id="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+    </div>
+    <div *ngIf="category.touched && category.value.length == 0">
+        Category is required.
+    </div>
+    <p>{{f.value | json }}</p>
+    <div>
+        <button>Create</button>
+    </div>
+</form> 
+```
 #### Reactive Forms:
-                                                            
-               
-               
+```                                                            
+The object f.firstName.errors can be null. Use the safe navigation operator ?:
+
+*ngIf="f.firstName.errors?.required"           
+```
+                                    
+ ### Reactvive form validations
+                                    
+```
+form = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  })
+
+  get username(){
+    return this.form.get('username');
+  }
+
+  get password(){
+    return this.form.get('password');
+  }
+                                    
+html::
+                                    
+<form [formGroup]="form">
+    <input type="text" name="username" formControlName="username">
+    <div *ngIf="form.get('username')?.invalid">
+        Please enter the name
+    </div>
+</form>
+                                              
+or 
+                                              
+ <form [formGroup]="form">
+    <input type="text" name="username" formControlName="username">
+    <div *ngIf="username?.invalid">
+        Please enter the name
+    </div>
+</form>
+```                                    
+
+                                  
+Custom validators:
+                                  
+```
+<form [formGroup]="form">
+    <input type="text" name="username" formControlName="username">
+    <div *ngIf="username?.errors?.required">
+        Please enter the name
+    </div>
+    <div *ngIf="username?.errors?.minlength">
+        User name must be more than {{username?.errors?.minlength?.requiredLength}}
+    </div>
+    <div *ngIf="username?.errors?.cannotContainSpace">
+        Space not allowed
+    </div>
+</form>
+                                                     
+                                                     
+--------------------
+import { AbstractControl, ValidationErrors } from "@angular/forms";
+
+export class UserNameValidators {
+    static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
+        if((control.value as string).indexOf(' ') != -1 ){
+            return {
+                cannotContainSpace: true
+            }
+        }
+        return null;
+    }
+}
+------------
+ form = new FormGroup({
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      UserNameValidators.cannotContainSpace
+    ]),
+    password: new FormControl('', Validators.required)
+  })                                                                 
+```                                  
