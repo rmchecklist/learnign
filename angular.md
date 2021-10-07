@@ -506,6 +506,18 @@ ngGroup - Can have mutiple group of elements and seperated by ngGroup
                     <input ngModel name="lastName" #lastName="ngModel" type="text" />
                </form>
                ```
-               
+- print the form value in the html form 
+```
+               <form #f="ngForm>
+                         {{f | json}} --> This will print all the value inside the forms.
+               </form>
+```
+                         
+- Form validation can done through template variable.
+ <input ngModel #name="ngModel" name="firstName" type="text"> -> templage varialbe name will have all the validation attributes which is inherited from ngModel.
+                                                            
+                                                            
+#### Reactive Forms:
+                                                            
                
                
