@@ -50,4 +50,7 @@ Angular projects
 - Directives
     Whenever directives modifies the dom should be prefix with * i.e **ngFor
     
+![image](https://user-images.githubusercontent.com/5713791/137423184-c013f7f4-45ca-4ab8-bc7f-1a51e702bb8e.png)
+
+
  - Services   
