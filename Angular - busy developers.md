@@ -26,4 +26,13 @@ Angular projects
      - tslint.jspn(static analysis code typescript)
             
             
-          
+ - Components:
+        - Create a component
+        ![image](https://user-images.githubusercontent.com/5713791/137421194-5a07e70d-1108-483a-bd90-040f09970d03.png)
+ 
+        - Register in a module
+        ![image](https://user-images.githubusercontent.com/5713791/137421247-b04e97fe-e4f1-4261-8a7e-38f35a687678.png)
+
+        - Add an element in a HTML markup
+        ![image](https://user-images.githubusercontent.com/5713791/137421274-090a6480-e54e-4027-8ea1-7d0141901a2b.png)
+
