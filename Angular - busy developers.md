@@ -28,16 +28,16 @@ Angular projects
             
  - Components:
         - Create a component
-        - 
-        ![image](https://user-images.githubusercontent.com/5713791/137421194-5a07e70d-1108-483a-bd90-040f09970d03.png)
+        
+![image](https://user-images.githubusercontent.com/5713791/137421194-5a07e70d-1108-483a-bd90-040f09970d03.png)
  
         - Register in a module
         
-        ![image](https://user-images.githubusercontent.com/5713791/137421247-b04e97fe-e4f1-4261-8a7e-38f35a687678.png)
+ ![image](https://user-images.githubusercontent.com/5713791/137421247-b04e97fe-e4f1-4261-8a7e-38f35a687678.png)
 
         - Add an element in a HTML markup
         
-        ![image](https://user-images.githubusercontent.com/5713791/137421274-090a6480-e54e-4027-8ea1-7d0141901a2b.png)
+ ![image](https://user-images.githubusercontent.com/5713791/137421274-090a6480-e54e-4027-8ea1-7d0141901a2b.png)
 
 - Generating component using angular CLI.
     - ng g c course
@@ -45,7 +45,7 @@ Angular projects
 - Templates
         Values will binded in html using {{}} => String intepolation, we can call any javascript functions
         
-        ![image](https://user-images.githubusercontent.com/5713791/137422144-fbc27115-e8fa-4882-8478-c4f6f7a0c822.png)
+![image](https://user-images.githubusercontent.com/5713791/137422144-fbc27115-e8fa-4882-8478-c4f6f7a0c822.png)
         
 - Directives
     Whenever directives modifies the dom should be prefix with * i.e **ngFor
