@@ -36,3 +36,13 @@ Angular projects
         - Add an element in a HTML markup
         ![image](https://user-images.githubusercontent.com/5713791/137421274-090a6480-e54e-4027-8ea1-7d0141901a2b.png)
 
+- Generating component using angular CLI.
+    - ng g c course
+
+- Templates
+        Values will binded in html using {{}} => String intepolation, we can call any javascript functions
+        ![image](https://user-images.githubusercontent.com/5713791/137422144-fbc27115-e8fa-4882-8478-c4f6f7a0c822.png)
+- Directives
+    Whenever directives modifies the dom should be prefix with * i.e **ngFor
+    
+ - Services   
