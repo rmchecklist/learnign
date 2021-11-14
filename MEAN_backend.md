@@ -64,5 +64,43 @@
         Update the connection url(username password and database) and placed it under env to access globally
 5. Intall mongo compass (DB IDE tool)
     
+# Installing CORS to allow request from frontend
+    npm install cors
 
+# Configuring data model and schema
+     In order to conenct mongo db we need to define schema and and model
+    
+  models:
+    
+    const mongoose = require('mongoose');
+```
+const categorySchema = mongoose.Schema({
+    name: String,
+    image: String,
+    countInStock: {
+        type: Number,
+        required: true,
+    },
+});
 
+exports.Category = mongoose.model('Category', categorySchema);
+    ```
+    
+    routers:
+    
+    ```
+    const express = require('express')
+const router = express.Router();
+const Category = require('../models/categories')
+
+router.get('/', async (req, res) => {
+    const categoryList = await Category.find()
+
+    if (!categoryList) {
+        res.status(500).json({ success: false })
+    }
+
+    res.send(categoryList)
+})
+    ```
+    
