@@ -40,4 +40,29 @@
     
 10. When we send the post request express should understand the body of the content,, for we need to use middleware => app.use(express.json())
 
+# Logging API request.
+
+1. install morgan => npm install morgan
+2. use morgan
+    const morgan = require('morgan')
+    
+    
+    //Middleware
+    app.use(morgan('tiny'));
+    
+# Installing mongoose and connecting to mongodb
+
+1. install mongoose => npm install mongoose => responsible for connecting mongodb
+2. Copy the connecting string from mongodb
+    Database => Connect => Choose a connection methood => Connect your application
+    mongodb+srv://<username>:<password>@cluster0.xkcal.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+3. For connecting, need username, password
+    Database access => Add new Database User
+4. Create a database
+        Collection and create new database
+        Add ip into Network access to access application from local machine
+        Update the connection url(username password and database) and placed it under env to access globally
+5. Intall mongo compass (DB IDE tool)
+    
+
 
