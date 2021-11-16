@@ -104,3 +104,8 @@ router.get('/', async (req, res) => {
 })
     ```
     
+ # Hasing password
+    
+    1. install bcrypt => npm install bcryptjs
+    
+    
