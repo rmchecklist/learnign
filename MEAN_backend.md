@@ -108,4 +108,6 @@ router.get('/', async (req, res) => {
     
     1. install bcrypt => npm install bcryptjs
     
+# Uploading images 
     
+1. install mutler lib => npm install multer
