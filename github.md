@@ -11,11 +11,20 @@ https://www.youtube.com/watch?v=Fk12ELJ9Bww&ab_channel=AutomationStepbyStep-Ragh
 | 4  | git add [files_names] or .[all files]  | git add add all the files to staging |
 | 5  | git commit -m 'mesasges'  | Commit the files |
 | 6  | git log  | list all commits on the current branch |
-| 7  | git checkout commit_id  | Checkout specific commit |
-| 8  | git branch  | List all branches |
-| 9  | git branch new_branch_name  | Create new branch |
-| 10  | git checkout -b new_branch_name  | Create new branch and checkout |
-
+| 7  | git checkout branch_name  | Checkout branch |
+| 8  | git checkout commit_id  | Checkout specific commit |
+| 9  | git branch  | List all branches |
+| 10  | git branch new_branch_name  | Create new branch |
+| 11  | git checkout -b new_branch_name  | Create new branch and checkout |
+| 12  | git merge target_branch_name  | Merge files into current branch |
+| 13  | detached head  | When checkout the specific commit, then it will be considered as detached head |
+| 14  | git switch third_branch | Switching to other branch|
+| 15  | git switch -c fourth_branch | Switching to new branch|
+| 16  | git ls-files | List of the files under the branch|
+| 17  | git rm deleted_files | stage the deleted files, run commit command to commit this changes|
+| 18  | git checkout filename | If there is any file with unstaged changes and want to revert back to last committed change |
+| 19  | git checkout .  | go back current head branch |
+| 20  | git restore [file_name|.]  | instread of checkout, use restrore to revert unstaged changed, both commands are same, restore is more specific |
 
 
 
