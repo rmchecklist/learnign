@@ -9,37 +9,17 @@ git --version
 
 | S#  | Commands | Description |
 | :--- | :--- | :--- |
-| 1  | git init  | initialize project directory |
+| 1  | git --veriosn  | Git version |
+| 2  | git init  | initialize project directory |
+| 3  | git status  | check the current branch, and tracked and untracked files |
+| 4  | git add [files_names] or .[all files]  | git add add all the files to staging |
+| 5  | git commit -m 'mesasges'  | Commit the files |
+| 6  | git log  | list all commits on the current branch |
+| 7  | git checkout commit_id  | Checkout specific commit |
+| 8  | git branch  | List all branches |
+| 9  | git branch new_branch_name  | Create new branch |
+| 10  | git checkout -b new_branch_name  | Create new branch and checkout |
 
-
-|S#||Description|
-|:---|:---|
-|1|git init| initialize project directory|
-
-initialize the project directory:
-
-=> git init
-
-check the current branch, and tracked and untracked files
-=> git status
-
-git add add all the files to staging
-
-=> git add [files_names] or .[all files]
-
-Beofre commit add your email and name to track who commited the changes
-
-Commit the files
-=> git commit -m 'mesasges' 
-
-
-=> git log - file all commits on the current branch
-
-=> Checkout previous commit => git checkout commit_id(you can find from git log)
-
-=> list all branches => git branch
-
-=> create new branch => git branch new_branch_name
 
 
 
