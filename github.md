@@ -7,7 +7,12 @@ https://www.youtube.com/watch?v=Fk12ELJ9Bww&ab_channel=AutomationStepbyStep-Ragh
 git --version
 ```
 
-|S#|Commands|Description|
+| S#  | Commands | Description |
+| ------------- | ------------- | ------------- |
+| 1  | git init  | initialize project directory |
+
+
+|S#||Description|
 |------|--------|
 |1|git init| initialize project directory|
 
