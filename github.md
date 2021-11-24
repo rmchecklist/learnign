@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=Fk12ELJ9Bww&ab_channel=AutomationStepbyStep-Ragh
 | 17  | git rm deleted_files | stage the deleted files, run commit command to commit this changes|
 | 18  | git checkout filename | If there is any file with unstaged changes and want to revert back to last committed change |
 | 19  | git checkout .  | go back current head branch |
-| 20  | git restore [file_name|.]  | instread of checkout, use restrore to revert unstaged changed, both commands are same, restore is more specific |
+| 20  | git restore [ file_name|. ]  | instread of checkout, use restrore to revert unstaged changed, both commands are same, restore is more specific |
 
 
 
