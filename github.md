@@ -8,12 +8,12 @@ git --version
 ```
 
 | S#  | Commands | Description |
-| ------------- | ------------- | ------------- |
+| :--- | :--- | :--- |
 | 1  | git init  | initialize project directory |
 
 
 |S#||Description|
-|------|--------|
+|:---|:---|
 |1|git init| initialize project directory|
 
 initialize the project directory:
