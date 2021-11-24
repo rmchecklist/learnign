@@ -3,10 +3,6 @@ https://www.youtube.com/watch?v=Fk12ELJ9Bww&ab_channel=AutomationStepbyStep-Ragh
 1. Instal git-scm 
 2. github version on windows 
 
-```
-git --version
-```
-
 | S#  | Commands | Description |
 | :--- | :--- | :--- |
 | 1  | git --veriosn  | Git version |
