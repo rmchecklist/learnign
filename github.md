@@ -25,6 +25,8 @@ https://www.youtube.com/watch?v=Fk12ELJ9Bww&ab_channel=AutomationStepbyStep-Ragh
 | 18  | git checkout filename | If there is any file with unstaged changes and want to revert back to last committed change |
 | 19  | git checkout .  | go back current head branch |
 | 20  | git restore [ file_name or  dot ]  | instread of checkout, use restrore to revert unstaged changed, both commands are same, restore is more specific |
+| 21  | git clean -dn | delete untracked files and directory n - dry run won't delete instead list down all files and folder going to be deleted |
+| 22  | git clean -df | Forced to clean the untracked files and directory|
 
 
 
