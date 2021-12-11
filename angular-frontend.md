@@ -26,3 +26,13 @@ How call libraries:
 1. Want to use component from lib always use path e.g. import { UiModule } from '@e-world/ui';
 2. path will be defined in the tsconfig.base.ts under path, we can change the path as we want
 3. Under path we will be using index.ts, where we mentioned all the export components, module, services
+
+
+GENERATE gradient for login background:
+
+https://css3generator.com/
+
+Gradient background
+
+https://cssgradient.io/gradient-backgrounds/
+
