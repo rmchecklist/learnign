@@ -111,3 +111,9 @@ router.get('/', async (req, res) => {
 # Uploading images 
     
 1. install mutler lib => npm install multer
+    
+    
+    
+Deploy the application into heroku
+    
+    https://devcenter.heroku.com/articles/heroku-cli
