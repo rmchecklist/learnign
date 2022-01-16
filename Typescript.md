@@ -3,8 +3,8 @@
   
 - Typescript compiler version => tsc -version
 - Transpile ts to js => tsc file_name.ts
-
-
+- watch ts file => tsc --watch file_name
+- Create tsconfig.json => tsc --init
 #### Declaring variables
 
 let - can access within that block.
@@ -20,6 +20,23 @@ number[]
 any[]
 
 enum Color {Red, Blue, Green} or {Red=0, Blue=1, Green=2} both are same
+
+
+**Basic type:
+
+let id: number = 5;
+let company: string = 'Rengith Manickam'
+let isPublished:boolean = true
+let x:any = 'Hello'
+
+let ids: number[] = [1,2,3]
+let arr: any[] = [1, true, 'hello']
+
+**Tuple
+
+let person: [number, string, boolean] = [1, 'rengith', true];
+
+let employee: [number, string][]
 
 #### Type assertions
 
