@@ -59,4 +59,16 @@ this.store.dispatch({type: 'START_LOADING'}) => displatch function accepts type 
  ```
  
  
+ 
+ 1. install ngrx store => npm i --save @ngrx/store@4
+ 2. install ngrx effects => npm i --save @ngrx/effects@4
+ 3. intall ngrx dev-tools => npm i --save @ngrx/store-devtools
+ 4. Add entry to app root module(app.module.ts)
+     import StoreModule StoreEffects and StoreDevTools
+         a. StoreModule.forRoot({reducer}| actionreducermap)
+5. Install redux dev tools
+6. Enable dev store tools
+      a. import store dev tools => StoreDevToolsModule.instrument({maxAge: 25, logOnly:})  - MaxAge is no of snapshot          
+
+
 
