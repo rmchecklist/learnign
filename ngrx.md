@@ -233,6 +233,8 @@ const login$ = createEffect(() => {
 25. Ngrx developing tool
 Ngrx Router store and Time travelling debugger
 
+npm i --save @ngrx/store-router@4
+
 Import StoreConnectorRouterModule in app.module.ts
 
 ```
