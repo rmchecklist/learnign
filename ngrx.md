@@ -232,3 +232,37 @@ const login$ = createEffect(() => {
 
 25. Ngrx developing tool
 Ngrx Router store and Time travelling debugger
+
+Import StoreConnectorRouterModule in app.module.ts
+
+```
+StoreRouterConnectingModule.forRoot({statekey: 'router', routerState: RouterState.Minimal})
+
+
+
+26. app level reducer
+
+```
+export interface AppState {
+}
+
+export const reducers: ActionReducerMap<AppState> = {
+    router: routerReducer ==> This key is same as in app.module.ts
+}
+```
+27. NgRx Runtime checks to avoid mutating state 
+    
+    app.module.ts
+    
+    ```
+    StoreModule.forRoot(reducers, {
+    metaReducers, 
+    runtimechecks: {
+        strictStateImmutability: true
+    }
+    })
+    ```
+    
+    
+    
+    
